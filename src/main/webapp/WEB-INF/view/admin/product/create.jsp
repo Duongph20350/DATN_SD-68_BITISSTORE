@@ -44,8 +44,6 @@
         <div class="main-panel">
             <div class="content">
                 <!--  start   -->
-
-
                 </section>
                 <section role="main" class="content-body" id="main-content">
 
@@ -100,17 +98,10 @@
                                                                 <option th:value="0">Không bán</option>
                                                             </select>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="brand" class="required-label">Nhãn hiệu sản phẩm <span
-                                                                    class="required">*</span></label>
-                                                            <select class="form-control" id="brand" name="brand">
-                                                                <option value="">Chọn nhãn hiệu cho sản phẩm</option>
 
-                                                            </select>
-                                                        </div>
                                                         <div class="form-group">
                                                             <div>
-                                                                <label class="control-label text-lg-right pt-2">Danh mục sản phẩm <span
+                                                                <label class="control-label text-lg-right pt-2">Thuộc Tính Sản Phẩm <span
                                                                         class="required">*</span></label>
                                                             </div>
                                                             <select multiple data-plugin-selectTwo class="form-control populate"

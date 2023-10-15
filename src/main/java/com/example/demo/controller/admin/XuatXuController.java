@@ -36,5 +36,9 @@ public class XuatXuController {
 
         return "admin/thuoctinh/xuatxu/create";
     }
+    @GetMapping("/xuatxuedit")
+    public String sua(Model model){
 
+        return "admin/thuoctinh/xuatxu/edit";
+    }
 }
