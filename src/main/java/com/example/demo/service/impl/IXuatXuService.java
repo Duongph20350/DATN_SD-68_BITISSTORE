@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class IXuatXuService implements XuatXuService {
-@Autowired
+    @Autowired
     IXuatXuReponsitory xuatXuReponsitory;
+
     @Override
     public void deletexuatxu(Integer id) {
-xuatXuReponsitory.deleteById(id);
+        xuatXuReponsitory.deleteById(id);
     }
 }
