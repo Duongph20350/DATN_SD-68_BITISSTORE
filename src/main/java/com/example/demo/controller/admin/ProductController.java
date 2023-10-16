@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProductController {
-    @Autowired
-    IXuatXuReponsitory iXuatXuReponsitory;
-    @Autowired
-    private XuatXuService iXuatXuService = new IXuatXuService();
+
     @GetMapping("/creat")
     public String them(Model model){
 

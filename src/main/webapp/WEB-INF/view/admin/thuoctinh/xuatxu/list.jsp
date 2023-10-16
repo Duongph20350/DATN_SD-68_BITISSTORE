@@ -83,7 +83,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <a href="xuatxuedit" class="btn btn-info">Thêm mới Xuất Xứ<i
+                                                <a href="/view_add" class="btn btn-info">Thêm mới Xuất Xứ<i
                                                 ></i></a>
 
                                                 <button class="btn btn-success">Tìm kiếm <i
@@ -139,10 +139,14 @@
                                                 <td>${pgg.status_}</td>
                                                 <td>${pgg.create_date}</td>
                                                 <td>${pgg.last_modifeed_date}</td>
-
-
                                                 <td>
-                                                    <Ahref="/xuatxu/delete/${pgg.id}">Delete</A>
+                                               <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                href="/delete/${pgg.id}">Delete</a>
+                                               </button>
+                                                    <p></p>
+                                                    <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                        href="/view_update/${pgg.id}">Update</a>
+                                                    </button>
                                                 </td>
 
                                             </tr>

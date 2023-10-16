@@ -76,7 +76,7 @@
                                                     class=""></i> Màu Sắc</a>
                                             <a href="/listsz" class="btn btn-primary"><i
                                                     class=""></i> Size</a>
-                                            <a href="/listxx" class="btn btn-primary"><i
+                                            <a href="listxx" class="btn btn-primary"><i
                                                     class=""></i> Xuất Xứ</a>
                                             <a href="/listnh" class="btn btn-primary"><i
                                                     class=""></i> Nhãn Hiệu</a>

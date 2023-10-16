@@ -57,16 +57,18 @@
                                         <h2 class="card-title"> Thêm Xuất Xứ</h2>
                                     </header>
                                     <div class="modal-body">
-                                        <form id="formCategory">
-                                            <input type="text" class="form-control" name="new_category" id="new_category"
-                                                   placeholder="Nhập tên xuat xứ">
+                                        <form action="/add_xuatxu" method="post">
+                                            <input type="text" class="form-control"
+                                                  name="name" placeholder="Nhập tên xuat xứ">
                                             <br>
                                             <label>Trạng thái</label>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="active" checked>
-                                                    <label class="custom-control-label" for="active">Kích hoạt xuất xứ</label>
-                                                </div>
+                                            <div class="input-group flex-nowrap">
+
+                                                <span class="input-group-text">Trang Thai</span>
+                                                <select class="form-select" aria-label="Default select example"  name="status" >
+                                                    <option value="1" }>Cos</option>
+                                                    <option value=" 0" >Khong</option>
+                                                </select>
                                             </div>
                                             <div class="modal-footer">
                                                 <a type="button" class="btn btn-secondary" data-dismiss="modal" href="/listxx">Hủy</a>

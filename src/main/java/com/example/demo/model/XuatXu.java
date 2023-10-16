@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class XuatXu {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+@GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
     @Column(name = "name_")
@@ -36,6 +36,10 @@ public class XuatXu {
         this.last_modifeed_date = last_modifeed_date;
         this.status_ = status_;
     }
+
+    public XuatXu(Object o, String name_, Integer valueOf) {
+    }
+
 
     public UUID getId() {
         return id;

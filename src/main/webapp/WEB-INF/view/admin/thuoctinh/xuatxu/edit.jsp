@@ -58,15 +58,18 @@
                                             <h2 class="card-title">Sửa Xuất Xứ</h2>
                                         </header>
                                         <div class="modal-body">
-                                            <form id="formCategory">
-                                                <input type="text" class="form-control" name="new_category" id="new_category"
-                                                       placeholder="Nhập XuatXu">
+                                            <form  action="/update" method="post">
+                                                <input type="text" class="form-control"
+                                                        disabled name="name" value="${xx.id}">
+                                                <br>
+                                                <input type="text" class="form-control" name="new_category"
+                                                       placeholder="Nhập XuatXu" name="name" value="${xx.name_}">
                                                 <br>
                                                 <label>Trạng thái</label>
                                                 <div class="form-group">
                                                     <div class="custom-control custom-switch">
-                                                        <input type="checkbox" class="custom-control-input" id="active" checked>
-                                                        <label class="custom-control-label" for="active">Kích hoạt xuất xứ</label>
+                                                        <input type="checkbox" class="custom-control-input" name="status" checked value="1"${dt.dungluong=="1"?"checked":""}">
+                                                        <label class="custom-control-label" >Kích hoạt xuất xứ</label>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
