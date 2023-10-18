@@ -67,6 +67,15 @@
                                                    id="formCategory">
                                             <div class="form-group">
                                                 <div>
+                                                    <div class="form-group">
+                                                        <div>
+                                                            <label class="required-label" >ID voucher</label>
+                                                        </div>
+                                                        <input type="text" class="form-control" name="name_" disabled
+                                                               value="${updatekm.id}"
+                                                               placeholder="Nhập Tên Chương Trình"><form:errors path="id"/> <br>
+                                                        <br>
+                                                    </div>
                                          <span style="color:red">(Mã kích hoạt chỉ bao gồm ký tự
                                         viết hoa từ A-Z và số từ 0-9 và dấu gạch ngang (độ dài từ 4 - 16 ký tự)]</span>
                                                     <br>

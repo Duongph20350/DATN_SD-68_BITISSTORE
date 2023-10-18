@@ -56,8 +56,12 @@
                                         <form:form action="/editus" method="post" modelAttribute="updateUser"
                                                    onsubmit="if(!confirm('Bạn Muốn Mở tài khoản này ?')){return false}else{alert('Mở Thành Công');}"
                                                    id="formCategory">
-                                            <label>Trạng thái</label>
+                                            <label>Thông tin tài khoản</label>
                                             <div class="form-group">
+                                                <label>ID Tài Khoản</label>
+                                                <input type="text" class="form-control" name="id"
+                                                       value="${updateUser.id}" readonly>
+                                                <br>
                                                 <label>Tên Tài Khoản</label>
                                                 <input type="text" class="form-control" name="id"
                                                        value="${updateUser.full_name}" readonly>
