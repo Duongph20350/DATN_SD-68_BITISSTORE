@@ -68,7 +68,7 @@ public class SizeController {
         return "admin/thuoctinh/size/edit";
     }
 
-    @GetMapping("delete/{id}")
+    @GetMapping("/size/delete/{id}")
     public String deleteSize(@PathVariable("id") UUID id) {
         sizeService.deleteSize(id);
         return "redirect:/listsz";
