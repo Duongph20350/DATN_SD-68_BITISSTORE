@@ -72,7 +72,7 @@
                                         <div class="mb-3">
                                             <a href="/listkd" class="btn btn-primary"><i
                                                     class=""></i> Kiểu Dáng</a>
-                                            <a href="/listms" class="btn btn-primary"><i
+                                            <a href="mau-sac/listms" class="btn btn-primary"><i
                                                     class=""></i> Màu Sắc</a>
                                             <a href="/listsz" class="btn btn-primary"><i
                                                     class=""></i> Size</a>

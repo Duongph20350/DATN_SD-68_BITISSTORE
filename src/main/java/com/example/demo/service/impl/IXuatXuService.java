@@ -1,17 +1,21 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.model.Size;
 import com.example.demo.model.XuatXu;
 import com.example.demo.responsitory.IXuatXuReponsitory;
 import com.example.demo.service.XuatXuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Service
 public class IXuatXuService implements XuatXuService {
-@Autowired
+    private final long date = System.currentTimeMillis();
+    private final Date dateNow = new Date(date);
+    @Autowired
     IXuatXuReponsitory xuatXuReponsitory;
 
     @Override
@@ -20,18 +24,32 @@ public class IXuatXuService implements XuatXuService {
     }
 
     @Override
-    public void adddxuatxu(XuatXu xuatXu) {
-xuatXuReponsitory.save(xuatXu);
+    public XuatXu addxuatxu(XuatXu xuatXu) {
+        XuatXu newXuatXu1 = new XuatXu().builder()
+                .name_(xuatXu.getName_())
+                .create_by(xuatXu.getCreate_by())
+                .create_date(dateNow)
+                .last_modifeed_date(dateNow)
+                .status_(xuatXu.getStatus_())
+                .build();
+
+        return xuatXuReponsitory.save(newXuatXu1);
     }
 
     @Override
-    public void update(UUID id, XuatXu xuatXu) {
-    XuatXu xuatXu1 = xuatXuReponsitory.findById(id).get();
-
-        xuatXu1.setName_(xuatXu.getName_());
-        xuatXu1.setStatus_(xuatXu.getStatus_());
-        xuatXuReponsitory.save(xuatXu);
+    public XuatXu update(XuatXu xuatXu) {
+        XuatXu updateS = xuatXuReponsitory.findById(xuatXu.getId()).orElse(null).builder()
+                .id(xuatXu.getId())
+                .name_(xuatXu.getName_())
+                .create_by(xuatXu.getCreate_by())
+                .create_date(xuatXu.getCreate_date())
+                .last_modifeed_date(dateNow)
+                .status_(xuatXu.getStatus_())
+                .build();
+        return xuatXuReponsitory.save(updateS);
     }
+
+
 
     @Override
     public XuatXu detail(UUID id) {

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="main-panel">
     <!-- Navbar -->
 
@@ -17,18 +19,18 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category" > Sản Phẩm</p>
-                                    <p class="card-title">0<p>
+                                    <p class="card-category"> Sản Phẩm</p>
+                                    <p class="card-title"> ${page.getTotalElements()}
+                                    <p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer ">
                         <hr>
-                        <div class="stats" href="">
-                            <i class="nc-minimal-right"></i>
-                            Xem Chi Tiết
-                        </div>
+                        <a href="/product"> <i class="nc-minimal-right"></i>
+                            Xem Chi Tiết</a>
+
                     </div>
                 </div>
             </div>
@@ -44,7 +46,8 @@
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
                                     <p class="card-category">Doanh Thu</p>
-                                    <p class="card-title">$ 1,345<p>
+                                    <p class="card-title">$ 1,345
+                                    <p>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +73,8 @@
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
                                     <p class="card-category">Đơn Hàng</p>
-                                    <p class="card-title">23<p>
+                                    <p class="card-title">23
+                                    <p>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +83,7 @@
                         <hr>
                         <div class="stats">
                             <i class="fa fa-clock-o"></i>
-                           Xem Chi Tiết
+                            Xem Chi Tiết
                         </div>
                     </div>
                 </div>
@@ -97,7 +101,8 @@
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
                                     <p class="card-category">Thuộc Tính</p>
-                                    <p class="card-title">10<p>
+                                    <p class="card-title">10
+                                    <p>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +174,7 @@
                             <i class="fa fa-circle text-info"></i> Bitis3
                             <i class="fa fa-circle text-warning"></i> Bitis2
                         </div>
-                        <hr />
+                        <hr/>
                         <div class="card-stats">
                             <i class="fa fa-check"></i> Xem Chi Tiết
                         </div>

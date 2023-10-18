@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +58,7 @@
                                     <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                     <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                 </div>
-                                <h2 class="card-title">Danh sách Thuộc Tính</h2>
+                                <h2 class="card-title">Danh sách Size</h2>
                                 <br>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -95,7 +97,7 @@
 
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>STT</th>
                                             <th>Size</th>
                                             <th>Trạng thái </th>
                                             <!--                    <th>Thứ tự nhãn hiệu</th>-->
@@ -128,8 +130,37 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
+                                            <tr >
+                                                <td>${stt.index+1}</td>
+                                                <td>${pgg.name_}</td>
+                                                <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+                                                <td>${pgg.create_date}</td>
+                                                <td>${pgg.last_modifeed_date}</td>
 
+
+                                                <td>
+                                                    <a href="/view-edit/${pgg.id}">Update</a>
+                                                    <a href="/deletess/${pgg.id}">Delete</a>
+                                                </td>
+
+                                            </tr>
+                                        </c:forEach>
                                         </tbody>
+                                        <p>Số Lượng Size : ${page.getTotalElements()} </p>
+                                        <div class="text-center">
+                                            <c:if test="${ page.getNumber() + 1 > 1}">
+                                                <a href="?page=${page.getNumber() + 1 - 1}&name_=${param.name_}">
+                                                    Previous
+                                                </a>
+                                            </c:if>
+                                            <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
+                                            <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
+                                                <a href="?page=${page.getNumber() + 1 + 1} &name_=${param.ten}">
+                                                    Next
+                                                </a>
+                                            </c:if>
+                                        </div>
                                     </table>
                                     <br>
                                     <!-- Pagination -->

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="sidebar-wrapper">
     <ul class="nav">
         <li class="active ">
@@ -11,26 +11,26 @@
         </li>
         <li>
             <a href="/product">
-                <i class="nc-bag-16"></i>
+                <i class="fa fa-cube"></i>
                 <p>Quản Lý Sản Phẩm</p>
             </a>
         </li>
         <li>
-            <a href="">
-                <i class="nc-money-coins"></i>
+            <a href="/hoadonhome">
+                <i class="fa fa-fax"></i>
                 <p>Quản Lý Giao Dịch</p>
             </a>
         </li>
 
         <li>
             <a href="khuyenmai">
-                <i class="nc-atom"></i>
+                <i class="fa fa-eraser"></i>
                 <p>Quản Lí Khuyến Mãi</p>
             </a>
         </li>
 
         <li>
-            <a href="./user.html">
+            <a href="/listuser">
                 <i class="nc-icon nc-single-02"></i>
                 <p>Quản Lí Tài Khoản</p>
             </a>

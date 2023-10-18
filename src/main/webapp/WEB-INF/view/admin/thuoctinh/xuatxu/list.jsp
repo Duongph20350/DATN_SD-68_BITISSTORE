@@ -3,26 +3,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <!--     logo web    -->
     <link rel="apple-touch-icon" sizes="76x76" href="">
     <!--     logo web    -->
     <link rel="icon" type="image/png" href="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
         BITI'S STORE ADMIN
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <!-- CSS Files -->
-    <link href="/admin/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/admin/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/admin/css/paper-dashboard.css?v=2.0.1" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="/admin/demo/demo.css" rel="stylesheet" />
+    <link href="/admin/demo/demo.css" rel="stylesheet"/>
 </head>
 
 <body class="">
@@ -92,7 +93,7 @@
                                         </div>
                                     </div>
 
-                                    <table class="table table-bordered table-striped mb-0" >
+                                    <table class="table table-bordered table-striped mb-0">
 
                                         <thead>
                                         <tr>
@@ -106,17 +107,17 @@
                                             <th>Thao tác</th>
                                         </tr>
                                         <tr>
-                                            <form method="GET" >
+                                            <form method="GET">
                                                 <Th></Th>
                                                 <th>
-                                                    <input type="text" name="id"  class="form-control search-input">
+                                                    <input type="text" name="id" class="form-control search-input">
                                                 </th>
                                                 <th>
-                                                    <input type="text" name="name"  class="form-control search-input">
+                                                    <input type="text" name="name" class="form-control search-input">
                                                 </th>
 
                                                 <th>
-                                                    <select name="status" class="form-control search-select" >
+                                                    <select name="status" class="form-control search-select">
                                                         <option value="">Tất cả</option>
                                                         <option value="0">Ẩn</option>
                                                         <option value="1">Hiển thị</option>
@@ -126,26 +127,26 @@
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                                <input type="hidden" name="page" >
+                                                <input type="hidden" name="page">
                                             </form>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
-                                            <tr >
+                                        <c:forEach items="${page.getContent()}" var="pgg" varStatus="stt">
+                                            <tr>
                                                 <td>${stt.index+1}</td>
                                                 <td>${pgg.id}</td>
                                                 <td>${pgg.name_}</td>
-                                                <td>${pgg.status_}</td>
+                                                <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
                                                 <td>${pgg.create_date}</td>
                                                 <td>${pgg.last_modifeed_date}</td>
                                                 <td>
-                                               <button  class="btn btn-primary"><a style="color: aliceblue"
-                                                                href="/delete/${pgg.id}">Delete</a>
-                                               </button>
+                                                    <button class="btn btn-primary"><a style="color: aliceblue"
+                                                                                       href="/delete/${pgg.id}">Delete</a>
+                                                    </button>
                                                     <p></p>
-                                                    <button  class="btn btn-primary"><a style="color: aliceblue"
-                                                                                        href="/view_update/${pgg.id}">Update</a>
+                                                    <button class="btn btn-primary"><a style="color: aliceblue"
+                                                                                       href="/view_update/${pgg.id}">Update</a>
                                                     </button>
                                                 </td>
 
@@ -174,8 +175,6 @@
                             </section>
 
 
-
-
                         </section>
                     </form>
                 </section>
@@ -197,10 +196,11 @@
     <!--  Notifications Plugin    -->
     <script src="../admin/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="../admin/demo/demo.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
             demo.initChartsPages();
         });
