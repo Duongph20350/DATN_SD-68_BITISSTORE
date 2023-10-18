@@ -1,27 +1,29 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <!--     logo web    -->
     <link rel="apple-touch-icon" sizes="76x76" href="">
     <!--     logo web    -->
     <link rel="icon" type="image/png" href="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
         BITI'S STORE ADMIN
     </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <!-- CSS Files -->
-    <link href="/admin/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/admin/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="/admin/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/admin/css/paper-dashboard.css?v=2.0.1" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="/admin/demo/demo.css" rel="stylesheet" />
+    <link href="/admin/demo/demo.css" rel="stylesheet"/>
 </head>
 
 <body class="">
@@ -49,31 +51,32 @@
                         <div class="col-12">
                             <div class="card card-outline">
                                 <div class="card-body pad">
-                                    <header class="card-header">
-                                        <div class="card-actions">
-                                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-                                        </div>
-                                        <h2 class="card-title"> Thêm Xuất Xứ</h2>
-                                    </header>
+
                                     <div class="modal-body">
-                                        <form id="formCategory">
-                                            <input type="text" class="form-control" name="new_category" id="new_category"
-                                                   placeholder="Nhập tên xuat xứ">
+                                        <form:form action="/add_xuatxu" method="post" modelAttribute="addxuatxu"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Xuất Xứ?')){return false}else{alert('Thêm Thành Công Xuất Xứ');}"
+                                                   id="formCategory">
+                                            <label>Tên Xuất Xứ</label>
+                                            <input type="text" class="form-control" name="name_"
+                                                   value="${addxuatxu.name_}"
+                                                   placeholder="Nhập Xuất xứ"><form:errors path="name_"/><br>
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="active" checked>
-                                                    <label class="custom-control-label" for="active">Kích hoạt xuất xứ</label>
+                                                    <input type="checkbox" class="custom-control-input" id="active"
+                                                           checked>
+                                                    <input type="hidden" id="status" name="status_">
+                                                    <label class="custom-control-label" for="active">Kích hoạt
+                                                        Xuất Xứ</label>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <a type="button" class="btn btn-secondary" data-dismiss="modal" href="/listxx">Hủy</a>
+                                                <a type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                   href="/listsz">Hủy</a>
                                                 <button type="submit" class="btn btn-primary">Thêm</button>
                                             </div>
-                                        </form>
-
+                                        </form:form>
 
 
                                     </div>
@@ -95,14 +98,29 @@
                         <!--  Notifications Plugin    -->
                         <script src="../admin/js/plugins/bootstrap-notify.js"></script>
                         <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-                        <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+                        <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+                        <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
                         <script src="../admin/demo/demo.js"></script>
                         <script>
-                            $(document).ready(function() {
+                            $(document).ready(function () {
                                 // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
                                 demo.initChartsPages();
                             });
+                            function initializeStatus() {
+                                var isActive = document.getElementById('active').checked ? 1 : 0;
+                                document.getElementById('status').value = isActive;
+                            }
+
+                            document.getElementById('active').addEventListener('change', initializeStatus);
+
+                            // Gọi hàm khởi tạo khi trang tải
+                            initializeStatus();
+
                         </script>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

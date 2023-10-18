@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -59,7 +60,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="mb-3">
-                                            <a href="/product" class="btn btn-primary"><i
+                                            <a href="/productdetailadmin" class="btn btn-primary"><i
                                                     class="fas fa-chevron-left"></i> Trở về</a>
                                             <button type="submit" id="addToTable" class="btn btn-primary">Thêm sản phẩm <i
                                                     class="fas fa-plus"></i></button>
@@ -77,10 +78,15 @@
                                                     <div class="col-lg-9 col-md-8">
                                                         <div class="form-group">
                                                             <div>
-                                                                <label class="required-label" for="name">Tên sản phẩm <span
+                                                                <label class="required-label">Tên sản phẩm <span
                                                                         class="required">*</span></label>
                                                             </div>
-                                                            <input type="text" class="form-control" name="fullName" id="name">
+                                                            <select class="form-control" var="">
+
+                                                                <c:forEach items="${lstproduct}"  var="pgg" >
+                                                                        <option>${pgg.name_}</option>
+                                                                </c:forEach>
+                                                            </select>
                                                         </div>
                                                         <div class="form-group">
                                                             <div>
@@ -90,15 +96,15 @@
                                                             <textarea class="textarea" id="description" name="description"></textarea>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-lg-3 col-md-4">
                                                         <div class="form-group">
                                                             <label for="status" class="required-label">Trạng thái</label>
                                                             <select class="form-control" id="status">
-                                                                <option th:value="1">Mở bán</option>
-                                                                <option th:value="0">Không bán</option>
+                                                                <option value="1">Mở bán</option>
+                                                                <option value="0">Không bán</option>
                                                             </select>
                                                         </div>
-
                                                         <div class="form-group">
                                                             <div>
                                                                 <label class="control-label text-lg-right pt-2">Thuộc Tính Sản Phẩm <span
@@ -106,6 +112,7 @@
                                                             </div>
                                                             <select multiple data-plugin-selectTwo class="form-control populate"
                                                                     name="category[]" id="category">
+                                                                <button>Thêm Thuộc tính</button>
 
                                                             </select>
                                                         </div>
@@ -125,6 +132,13 @@
                                                             </div>
                                                             <input type="text" class="form-control text-price-input money"
                                                                    name="salePrice" id="salePrice">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="custom-control custom-switch">
+                                                                <input type="checkbox" class="custom-control-input" id="active" checked>
+
+                                                                <label class="custom-control-label" >Được Phép khuyến mãi</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

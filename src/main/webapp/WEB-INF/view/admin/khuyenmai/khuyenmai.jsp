@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -53,26 +54,27 @@
                                 <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                 <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                             </div>
-                            <h2 class="card-title">Danh sách khuyến mại</h2>
+                            <h2 class="card-title">Danh sách Voucher</h2>
                         </header>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="mb-3">
-                                        <a href="/creatkm" id="addToTable" class="btn btn-info">Thêm mới khuyến mại <i
-                                                class="fas fa-plus"></i></a>
+                                        <a href="/view_addkm" id="addToTable" class="btn btn-info">Thêm mới Voucher <i
+                                               ></i></a>
 
                                         <button id="btn-search" class="btn btn-primary">Tìm kiếm <i
-                                                class="fas fa-search"></i></button>
+                                                ></i></button>
                                     </div>
                                 </div>
                             </div>
                             <table class="table table-bordered table-striped mb-0" id="datatable-editable">
                                 <thead>
                                 <tr>
+                                    <th width="15%">STT</th>
                                     <th width="15%">Mã khuyến mại</th>
                                     <th>Tên khuyến mại</th>
-                                    <th>Loại</th>
+
                                     <th>Trạng thái</th>
                                     <th>Giá trị</th>
                                     <th>Ngày bắt đầu</th>
@@ -82,23 +84,18 @@
                                 <tr class="heading-search">
                                     <form  method="GET" id="search-form">
                                         <th>
-                                            <input type="text" name="code" id="code" class="form-control search-input">
+
                                         </th>
                                         <th>
                                             <input type="text" name="name" id="name" class="form-control search-input">
                                         </th>
+
+                                     <th></th>
                                         <th>
                                             <select name="publish" class="form-control search-select" id="publish">
                                                 <option value="">Tất cả</option>
                                                 <option value="0">Ẩn</option>
                                                 <option value="1">Công khai</option>
-                                            </select>
-                                        </th>
-                                        <th>
-                                            <select name="active" class="form-control search-select" id="active">
-                                                <option value="">Tất cả</option>
-                                                <option value="0">Vô hiệu hóa</option>
-                                                <option value="1">Kích hoạt</option>
                                             </select>
                                         </th>
                                         <th></th>
@@ -109,7 +106,43 @@
                                 </thead>
                                 <tbody>
 
-                                </tbody>
+                                <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
+                                    <tr >
+                                        <td>${stt.index+1}</td>
+                                        <td>${pgg.code}</td>
+                                        <td>${pgg.name_}</td>
+                                        <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+                                        <td>${pgg.value_}</td>
+                                        <td>${pgg.start_date_}</td>
+                                        <td>${pgg. end_date}</td>
+                                        <td>
+                                            <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                href="/deletevc/${pgg.id}">Delete</a>
+                                            </button>
+                                            <p></p>
+                                            <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                href="/view_updatekm/${pgg.id}">Update</a>
+                                            </button>
+                                        </td>
+
+                                    </tr>
+                                </c:forEach>
+                                </TBODY>
+
+                                <p>Số Lượng voucher: ${page.getTotalElements()} </p>
+                                <div class="text-center">
+                                    <c:if test="${ page.getNumber() + 1 > 1}">
+                                        <a href="?page=${page.getNumber() + 1 - 1}&name_=${param.name_}">
+                                            Previous
+                                        </a>
+                                    </c:if>
+                                    <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
+                                    <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
+                                        <a href="?page=${page.getNumber() + 1 + 1} &name_=${param.ten}">
+                                            Next
+                                        </a>
+                                    </c:if>
+                                </div>
                             </table>
                             <br>
                             <!-- Pagination -->
@@ -142,10 +175,20 @@
     <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="../admin/demo/demo.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
             demo.initChartsPages();
         });
+        function initializeStatus() {
+            var isActive = document.getElementById('active').checked ? 1 : 0;
+            document.getElementById('status').value = isActive;
+        }
+
+        document.getElementById('active').addEventListener('change', initializeStatus);
+
+        // Gọi hàm khởi tạo khi trang tải
+        initializeStatus();
+
     </script>
 </body>
 

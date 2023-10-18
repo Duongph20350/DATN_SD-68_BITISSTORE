@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -51,18 +52,10 @@
                             <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                             <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                         </div>
-                        <h2 class="card-title">Tạo khuyến mại</h2>
+                        <h2 class="card-title">Tạo Vocher</h2>
                         <br>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <a href="/khuyenmai" class="btn btn-primary"><i
-                                            class="fas fa-chevron-left"></i> Trở về</a>
-                                    <button type="button" id="addToTable" class="btn btn-primary btn-create-promotion">Tạo khuyến mại <i
-                                            class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
+
+
                     </header>
                     <div class="card-body ">
                         <!-- Main content -->
@@ -70,74 +63,74 @@
                             <div class="col-lg-4 col-md-8 col-12">
                                 <div class="card card-outline">
                                     <div class="card-body pad promotion-box">
-                                        <div class="form-group">
-                                            <div>
+                                        <form:form action="/add_voucher" method="post" modelAttribute="adddvoucher"
+                                                   onsubmit="if(!confirm('Ban Muon Them?')){return false}else{alert('Them Thanh Cong');}"
+                                                   id="formCategory">
+                                            <div class="form-group">
+                                                <div>
                                          <span style="color:red">(Mã kích hoạt chỉ bao gồm ký tự
                                         viết hoa từ A-Z và số từ 0-9 và dấu gạch ngang (độ dài từ 4 - 16 ký tự)]</span>
+                                                    <br>
+                                                    <label class="required-label" >Mã code</label>
+                                                </div>
+                                                <input type="text" class="form-control" name="code"
+                                                       value="${adddvoucher.code}"
+                                                       placeholder="Nhập code Voucher"><form:errors path="code"/> <br>
                                                 <br>
-                                                <label class="required-label" for="code">Mã code</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label" >Tên chương trình</label>
+                                                    <span class="invalid-feedback"
+                                                    >Độ dài tiêu đề từ 1 - 300 ký tự</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="name_"
+                                                       value="${adddvoucher.name_}"
+                                                       placeholder="Nhập Tên Chương Trình"><form:errors path="name_"/> <br>
+                                                <br>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label" >Mức giảm</label>
+                                                    <span class="invalid-feedback" ></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="value_"
+                                                       value="${adddvoucher.value_}"
+                                                       placeholder="Nhập mức giảm"><form:errors path="value_"/> <br>
+                                                <br>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label" >Ngày bắt đầu</label>
 
-                                                <span class="invalid-feedback" id="invalid-feedback-code">Mã kích hoạt không hợp lệ</span>
+                                                </div>
+                                                <input type="date" class="form-control" name="start_date_" value="${adddvoucher.start_date_}" ><form:errors path="start_date_"/> <br>
                                             </div>
-                                            <input type="text" class="form-control" id="code">
-                                        </div>
-                                        <div class="form-group">
-                                            <div>
-                                                <label class="required-label" for="name">Tên chương trình</label>
-                                                <span class="invalid-feedback"
-                                                      id="invalid-feedback-name">Độ dài tiêu đề từ 1 - 300 ký tự</span>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label">Ngày hết hạn</label>
+
+                                                </div>
+                                                <input type="date" class="form-control " name="end_date" value="${adddvoucher.end_date}" ><form:errors path="end_date"/> <br>
                                             </div>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="discount-type" class="required-label">Khuyến mãi theo</label>
-                                            <select class="form-control" id="discount-type">
-                                                <option value="1">Phần trăm (%)</option>
-                                                <option value="2">Khoản tiền trực tiếp</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <div>
-                                                <label class="required-label" for="discount-value">Mức giảm</label>
-                                                <span class="invalid-feedback" id="invalid-feedback-discount-value"></span>
+                                            <label>Trạng thái</label>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="active"
+                                                           checked>
+                                                    <input type="hidden" id="status" name="status_">
+                                                    <label class="custom-control-label" for="active">Kích hoạt
+                                                        voucher</label>
+                                                </div>
                                             </div>
-                                            <input type="number" min="1" class="form-control" id="discount-value">
-                                        </div>
-                                        <div class="form-group discount-exactly">
-                                            <div>
-                                                <label class="required-label" for="max-value">Mức giảm tối đa</label>
-                                                <span class="invalid-feedback" id="invalid-feedback-max-value">Mức giảm giá tối đa cần lớn hơn 1000đ</span>
+                                            <div class="modal-footer">
+                                                <a type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                   href="/khuyenmai">Hủy</a>
+                                                <button type="submit"   class="btn btn-primary btn-create-promotion">Tạo khuyến mại <i
+                                                ></i></button>
                                             </div>
-                                            <input type="number" min="1" class="form-control" id="max-value">
-                                        </div>
-                                        <div class="form-group">
-                                            <div>
-                                                <label class="required-label" for="expired-date">Ngày bắt đầu</label>
-                                                <span class="invalid-feedback"
-                                                      ></span>
-                                            </div>
-                                            <input type="date" class="form-control" >
-                                        </div>
-                                        <div class="form-group">
-                                            <div>
-                                                <label class="required-label" for="expired-date">Ngày hết hạn</label>
-                                                <span class="invalid-feedback"
-                                                      id="invalid-feedback-expired-date">Thời gian không hợp lệ</span>
-                                            </div>
-                                            <input type="date" class="form-control" id="expired-date">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-switch">
-                                                <input type="checkbox" class="custom-control-input" id="ispublic" checked>
-                                                <label class="custom-control-label" for="ispublic">Công khai khuyến mãi</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-switch">
-                                                <input type="checkbox" class="custom-control-input" id="active" checked>
-                                                <label class="custom-control-label" for="active">Kích hoạt khuyến mãi</label>
-                                            </div>
-                                        </div>
+                                        </form:form>
+
                                     </div>
                                 </div>
                             </div>
@@ -167,10 +160,20 @@
     <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="../admin/demo/demo.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
             demo.initChartsPages();
         });
+        function initializeStatus() {
+            var isActive = document.getElementById('active').checked ? 1 : 0;
+            document.getElementById('status').value = isActive;
+        }
+
+        document.getElementById('active').addEventListener('change', initializeStatus);
+
+        // Gọi hàm khởi tạo khi trang tải
+        initializeStatus();
+
     </script>
 </body>
 

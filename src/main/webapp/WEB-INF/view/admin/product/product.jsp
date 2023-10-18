@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -61,8 +62,8 @@
                                         <div class="mb-3">
                                             <a href="/homepageadmin" class="btn btn-primary"><i
                                                    ></i> Trở về</a>
-                                            <a href="/creat" class="btn btn-primary"><i
-                                            ></i> Thêm sản phẩm</a>
+                                            <a href="/productdetailadmin" class="btn btn-primary"><i
+                                            ></i> Sản phẩm Chi Tiết</a>
 
                                             <a href="/thuoctinh" class="btn btn-primary"><i
                                                     ></i> Thuộc Tính</a>
@@ -82,10 +83,8 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <a href="/admin/products/create" class="btn btn-info">Thêm mới sản phẩm <i
-                                                        class="fas fa-plus"></i></a>
-                                                <a href="/admin/products" class="btn btn-primary">Refresh <i
-                                                        class="fas fa-redo-alt"></i></a>
+                                                <a href="/view_addproduct" class="btn btn-primary"><i
+                                                ></i> Thêm sản phẩm</a>
                                                 <button id="btn-search" class="btn btn-success">Tìm kiếm <i
                                                         class="fas fa-search"></i></button>
                                                 <button class="btn btn-warning btn_export"><a th:href="@{/api/products/export/excel}">Xuất dữ liệu</a>
@@ -99,52 +98,47 @@
                                         <thead>
                                         <tr>
                                             <!--                    <th><input type="checkbox" id="checkAll"></th>-->
-                                            <th width="8%">Mã sản phẩm</th>
+
+                                            <th>STT</th>
                                             <th>Tên sản phẩm</th>
-                                            <th>Ảnh</th>
-                                            <th>Nhãn hiệu</th>
-                                            <th>Danh mục</th>
-                                            <th>Giá nhập</th>
-                                            <th>Giá bán</th>
-                                            <th>Ngày tạo</th>
-                                            <th>Ngày sửa</th>
-                                            <th>Đã bán</th>
+                                            <th>Trạng Thái</th>
                                             <th>Thao tác</th>
-                                        </tr>
-                                        <tr>
-                                            <form method="GET" id="search-form">
-                                                <!--                        <th></th>-->
-                                                <th>
-                                                    <input type="text" name="id" id="id" class="form-control search-input">
-                                                </th>
-                                                <th>
-                                                    <input type="text" name="name" id="name" class="form-control search-input">
-                                                </th>
-                                                <th></th>
-                                                <th>
-                                                    <select name="brand" class="form-control search-select" id="brand">
-                                                        <option value="">Tất cả</option>
-
-                                                    </select>
-                                                </th>
-                                                <th>
-                                                    <select name="category" class="form-control search-select" id="category">
-                                                        <option value="">Tất cả</option>
-
-                                                    </select>
-                                                </th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <input type="hidden" name="page" id="page">
-                                            </form>
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
+                                            <tr >
+                                                <td>${stt.index+1}</td>
+                                                <td>${pgg.name_}</td>
+                                                <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+                                                <td>
+                                                    <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                        href="/deleteproduct/${pgg.id}">Delete</a>
+                                                    </button>
+                                                    <p></p>
+                                                    <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                        href="/view_updatepr/${pgg.id}">Update</a>
+                                                    </button>
+                                                </td>
 
+                                            </tr>
+                                        </c:forEach>
+                                        </TBODY>
+
+                                        <p>Số Lượng Giay: ${page.getTotalElements()} </p>
+                                        <div class="text-center">
+                                            <c:if test="${ page.getNumber() + 1 > 1}">
+                                                <a href="?page=${page.getNumber() + 1 - 1}&name_=${param.name_}">
+                                                    Previous
+                                                </a>
+                                            </c:if>
+                                            <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
+                                            <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
+                                                <a href="?page=${page.getNumber() + 1 + 1} &name_=${param.ten}">
+                                                    Next
+                                                </a>
+                                            </c:if>
+                                        </div>
                                         </tbody>
                                     </table>
                                     <br>
