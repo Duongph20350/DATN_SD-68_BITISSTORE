@@ -83,7 +83,7 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <a href="xuatxu" class="btn btn-info">Thêm mới Xuất Xứ<i
+                                                <a href="xuatxuedit" class="btn btn-info">Thêm mới Xuất Xứ<i
                                                 ></i></a>
 
                                                 <button class="btn btn-success">Tìm kiếm <i
