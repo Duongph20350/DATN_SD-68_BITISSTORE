@@ -21,6 +21,9 @@ public class KieuDangController {
     private KieuDangService kieuDangService;
     private List<KieuDang> lstKD = new ArrayList<>();
 
+
+
+
     @GetMapping("/listkd")
     public String thuoctinh(Model model, @RequestParam(defaultValue = "1") int page) {
 
@@ -37,5 +40,4 @@ public class KieuDangController {
 
         return "admin/thuoctinh/kieudang/create";
     }
-
 }
