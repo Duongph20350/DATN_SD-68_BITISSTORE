@@ -101,6 +101,38 @@
                                             </div>
                                             <div class="form-group">
                                                 <div>
+                                                    <label class="required-label" >Mức giảm Tối đa</label>
+                                                    <span class="invalid-feedback" ></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="maximum_value"
+                                                       value="${adddvoucher.maximum_value}"
+                                                       placeholder="Nhập mức giảm tối đa"><form:errors path="maximum_value"/> <br>
+                                                <br>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label" >Đơn tối Thiểu</label>
+                                                    <span class="invalid-feedback" ></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="condition"
+                                                       value="${adddvoucher.condition}"
+                                                       placeholder="Nhập mức giảm"><form:errors path="condition"/> <br>
+                                                <br>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label" >Số Lượng</label>
+                                                    <span class="invalid-feedback" ></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="quantity"
+                                                       value="${adddvoucher.quantity}"
+                                                       placeholder="Nhập mức giảm"><form:errors path="quantity"/> <br>
+                                                <br>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div>
                                                     <label class="required-label" >Ngày bắt đầu</label>
 
                                                 </div>
