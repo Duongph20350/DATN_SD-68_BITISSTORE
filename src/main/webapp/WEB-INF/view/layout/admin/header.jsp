@@ -35,7 +35,12 @@
                 <p>Quản Lí Tài Khoản</p>
             </a>
         </li>
-
+        <li>
+            <a href="/imagelist">
+                <i class="fa fa-image"></i>
+                <p>Thư Viện Ảnh</p>
+            </a>
+        </li>
     </ul>
 </div>
 </div>
