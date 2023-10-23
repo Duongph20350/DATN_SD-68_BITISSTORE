@@ -57,9 +57,19 @@
                                         <h2 class="card-title"> Thêm Xuất Xứ</h2>
                                     </header>
                                     <div class="modal-body">
+<<<<<<< Updated upstream
                                         <form id="formCategory">
                                             <input type="text" class="form-control" name="new_category" id="new_category"
                                                    placeholder="Nhập tên xuat xứ">
+=======
+                                        <form:form action="/add_xuatxu" method="post" modelAttribute="addxuatxu"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Xuất Xứ?')){return false}else{alert('Thêm Thành Công Xuất Xứ');}"
+                                                   id="formCategory">
+                                            <label>Tên Xuất Xứ</label>
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${addxuatxu.name}"
+                                                   placeholder="Nhập Xuất xứ"><form:errors path="name"/><br>
+>>>>>>> Stashed changes
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">

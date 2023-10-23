@@ -80,7 +80,16 @@
                                                                 <label class="required-label" for="name">Tên sản phẩm <span
                                                                         class="required">*</span></label>
                                                             </div>
+<<<<<<< Updated upstream
                                                             <input type="text" class="form-control" name="fullName" id="name">
+=======
+                                                            <select class="form-control" var="">
+
+                                                                <c:forEach items="${lstproduct}"  var="pgg" >
+                                                                        <option>${pgg.name}</option>
+                                                                </c:forEach>
+                                                            </select>
+>>>>>>> Stashed changes
                                                         </div>
                                                         <div class="form-group">
                                                             <div>

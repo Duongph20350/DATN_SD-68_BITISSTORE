@@ -49,6 +49,7 @@
                         <div class="col-12">
                             <div class="card card-outline">
                                 <div class="card-body pad">
+<<<<<<< Updated upstream
                                     <section class="card">
                                         <header class="card-header">
                                             <div class="card-actions">
@@ -68,6 +69,30 @@
                                                         <input type="checkbox" class="custom-control-input" id="active" checked>
                                                         <label class="custom-control-label" for="active">Kích hoạt Kiểu Dáng</label>
                                                     </div>
+=======
+
+                                    <div class="modal-body">
+                                        <form:form action="/editkd" method="post" modelAttribute="updateKieuDang"
+                                                   onsubmit="if(!confirm('Ban Muon Cap Nhat?')){return false}else{alert('Cap Nhap Thanh Cong');}"
+                                                   id="formCategory">
+                                            <label>ID</label>
+                                            <input type="text" class="form-control" name="id"
+                                                   value="${updateKieuDang.id}" readonly>
+                                            <label>Tên Size</label>
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${updateKieuDang.name}"
+                                                   placeholder="Nhập Kiểu dáng"><form:errors path="name"/><br>
+                                            <input type="hidden" name="create_date"
+                                                   value="${updateKieuDang.create_date}" readonly>
+                                            <br>
+                                            <label>Trạng thái</label>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="active"
+                                                           <c:if test="${updateKieuDang.status_ == 1}">checked</c:if>>
+                                                    <input type="hidden" id="status" name="status_">
+                                                    <label class="custom-control-label" for="active">Kích hoạt Kiểu Dáng</label>
+>>>>>>> Stashed changes
                                                 </div>
                                                 <div class="modal-footer">
                                                     <a type="button" class="btn btn-secondary" data-dismiss="modal" href="/listsz">Hủy</a>

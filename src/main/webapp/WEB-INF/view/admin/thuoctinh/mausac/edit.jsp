@@ -60,9 +60,9 @@
                                             <input type="text" class="form-control" name="id"
                                                    value="${updateMs.id}" readonly>
                                             <label>Tên Màu Sắc</label>
-                                            <input type="text" class="form-control" name="name_"
-                                                   value="${updateMs.name_}"
-                                                   placeholder="Nhập Màu Sắc"><form:errors path="name_"/><br>
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${updateMs.name}"
+                                                   placeholder="Nhập Màu Sắc"><form:errors path="name"/><br>
                                             <input type="hidden" name="create_date"
                                                    value="${updateMs.create_date}" readonly>
                                             <br>

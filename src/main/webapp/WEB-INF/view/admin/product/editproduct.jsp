@@ -39,9 +39,9 @@
             <a href="/homepageadmin" class="simple-text logo-normal">
                 BITI'S STORE</a>
         </div>
-        <jsp:include page="../../../layout/admin/header.jsp"></jsp:include>
+        <jsp:include page="../../layout/admin/header.jsp"></jsp:include>
 
-        <jsp:include page="../../../layout/admin/headerngang.jsp"></jsp:include>
+        <jsp:include page="../../layout/admin/headerngang.jsp"></jsp:include>
         <!--  start   -->
         <div class="main-panel">
             <div class="content">
@@ -53,28 +53,32 @@
                                 <div class="card-body pad">
 
                                     <div class="modal-body">
-                                        <form:form action="/mau-sac/create" method="post" modelAttribute="ms"
-                                                   onsubmit="if(!confirm('Ban Muon Them?')){return false}else{alert('Them Thanh Cong');}"
+                                        <form:form action="/updatepr" method="post" modelAttribute=" updatepr"
+                                                   onsubmit="if(!confirm('Ban Muon Cap Nhat?')){return false}else{alert('Cap Nhap Thanh Cong');}"
                                                    id="formCategory">
-                                            <label>Tên Màu Sắc</label>
+                                            <label>ID</label>
+                                            <input type="text" class="form-control" name="id"
+                                                   value="${pr.id}" readonly>
+                                            <label>Tên giày</label>
                                             <input type="text" class="form-control" name="name"
-                                                   value="${ms.name}"
-                                                   placeholder="Nhập Màu Sắc"><form:errors path="name"/><br>
+                                                   value="${pr.name}"
+                                                   placeholder="Nhập "><form:errors path="name"/><br>
+
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
                                                     <input type="checkbox" class="custom-control-input" id="active"
-                                                           checked>
+                                                           <c:if test="${pr.status_ == 1}">checked</c:if>>
+
                                                     <input type="hidden" id="status" name="status_">
-                                                    <label class="custom-control-label" for="active">Kích hoạt
-                                                        Màu Sắc</label>
+                                                    <label class="custom-control-label" for="active">Kích hoạt Sản Phẩm</label>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <a type="button" class="btn btn-secondary" data-dismiss="modal"
-                                                   href="/mau-sac/listms">Hủy</a>
-                                                <button type="submit" class="btn btn-primary">Thêm</button>
+                                                   href="/listsz">Hủy</a>
+                                                <button type="submit" class="btn btn-primary">Update</button>
                                             </div>
                                         </form:form>
 
@@ -121,6 +125,6 @@
                 </div>
             </div>
         </div>
-    </body>
+</body>
 
 </html>

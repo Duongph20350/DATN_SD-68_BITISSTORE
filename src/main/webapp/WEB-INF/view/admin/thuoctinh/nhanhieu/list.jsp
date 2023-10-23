@@ -127,8 +127,46 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+<<<<<<< Updated upstream
 
                                         </tbody>
+=======
+                                        <c:forEach items="${page.getContent()}" var="pgg" varStatus="stt">
+                                            <tr>
+                                                <td>${stt.index+1}</td>
+                                                <td>${pgg.name}</td>
+                                                <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+                                                <td>${pgg.create_date}</td>
+                                                <td>${pgg.last_modifeed_date}</td>
+                                                <td>
+                                                    <button class="btn btn-primary"><a style="color: aliceblue"
+                                                                                       href="/deletenh/${pgg.id}">Delete</a>
+                                                    </button>
+                                                    <p></p>
+                                                    <button class="btn btn-primary"><a style="color: aliceblue"
+                                                                                       href="/view_updatenh/${pgg.id}">Update</a>
+                                                    </button>
+                                                </td>
+
+                                            </tr>
+                                        </c:forEach>
+                                        </TBODY>
+
+                                        <p>Số Lượng Nhãn Hiệu: ${page.getTotalElements()} </p>
+                                        <div class="text-center">
+                                            <c:if test="${ page.getNumber() + 1 > 1}">
+                                                <a href="?page=${page.getNumber() + 1 - 1}&name=${param.name}">
+                                                    Previous
+                                                </a>
+                                            </c:if>
+                                            <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
+                                            <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
+                                                <a href="?page=${page.getNumber() + 1 + 1} &name=${param.ten}">
+                                                    Next
+                                                </a>
+                                            </c:if>
+                                        </div>
+>>>>>>> Stashed changes
                                     </table>
                                     <br>
                                     <!-- Pagination -->

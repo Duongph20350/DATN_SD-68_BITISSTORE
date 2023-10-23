@@ -49,6 +49,7 @@
                         <div class="col-12">
                             <div class="card card-outline">
                                 <div class="card-body pad">
+<<<<<<< Updated upstream
                                     <section class="card">
                                         <header class="card-header">
                                             <div class="card-actions">
@@ -68,6 +69,30 @@
                                                         <input type="checkbox" class="custom-control-input" id="active" checked>
                                                         <label class="custom-control-label" for="active">Kích hoạt size</label>
                                                     </div>
+=======
+
+                                    <div class="modal-body">
+                                        <form:form action="/edit" method="post" modelAttribute="updateSize"
+                                                   onsubmit="if(!confirm('Bạn Muốn Cập Nhật ?')){return false}else{alert('Cập Nhật Thành Công');}"
+                                                   id="formCategory">
+                                            <label>ID</label>
+                                            <input type="text" class="form-control" name="id"
+                                                   value="${updateSize.id}" readonly>
+                                            <label>Tên Size</label>
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${updateSize.name}"
+                                                   placeholder="Nhập Size"><form:errors path="name"/><br>
+                                            <input type="hidden" name="create_date"
+                                                   value="${updateSize.create_date}" readonly>
+                                            <br>
+                                            <label>Trạng thái</label>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="active"
+                                                           <c:if test="${updateSize.status_ == 1}">checked</c:if>>
+                                                    <input type="hidden" id="status" name="status_">
+                                                    <label class="custom-control-label" for="active">Kích hoạt size</label>
+>>>>>>> Stashed changes
                                                 </div>
                                                 <div class="modal-footer">
                                                     <a type="button" class="btn btn-secondary" data-dismiss="modal" href="/listsz">Hủy</a>

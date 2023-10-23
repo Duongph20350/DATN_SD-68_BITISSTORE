@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -28,7 +29,7 @@
 <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
         <div class="logo">
-            <a href="/product" class="simple-text logo-mini">
+            <a href="/homepageadmin" class="simple-text logo-mini">
                 <div class="logo-image-small">
                     <img src="">
                     <!--     logo web    -->
@@ -37,38 +38,18 @@
             <a href="/homepageadmin" class="simple-text logo-normal">
                 BITI'S STORE</a>
         </div>
-        <jsp:include page="../../../layout/admin/header.jsp"></jsp:include>
+        <jsp:include page="../../layout/admin/header.jsp"></jsp:include>
 
-        <jsp:include page="../../../layout/admin/headerngang.jsp"></jsp:include>
+        <jsp:include page="../../layout/admin/headerngang.jsp"></jsp:include>
         <!--  start   -->
         <div class="main-panel">
             <div class="content">
                 <!--  start   -->
 
-
-                </section>
                 <section role="main" class="content-body" id="main-content">
 
                     <form action="" id="formProduct">
                         <section class="card">
-                            <header class="card-header">
-                                <div class="card-actions">
-                                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-                                </div>
-                                <h2 class="card-title">Danh sách Thuộc Tính</h2>
-                                <br>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <a href="/thuoctinh" class="btn btn-primary"><i
-                                            ></i> Trở về</a>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </header>
 
                             <section class="card">
                                 <header class="card-header">
@@ -76,73 +57,60 @@
                                         <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                         <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                     </div>
-                                    <h2 class="card-title">Danh sách Size</h2>
+                                    <h2 class="card-title">Danh sách sản phẩm</h2>
                                 </header>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <a href="/size" class="btn btn-info">Thêm mới Size<i
-                                                ></i></a>
-
-                                                <button class="btn btn-success">Tìm kiếm <i
-                                                        class="fas fa-search"></i></button>
-
+                                                <a href="/product" class="btn btn-primary"><i
+                                                ></i> Trở về</a>
+                                                <a href="/view_addproductdetail" class="btn btn-primary"><i
+                                                ></i> Thêm sản phẩm</a>
+                                                ></button>
                                             </div>
                                         </div>
                                     </div>
-                                    <table class="table table-bordered table-striped mb-0" >
 
+                                    <table class="table table-bordered table-striped mb-0" id="datatable-editable">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Size</th>
-                                            <th>Trạng thái </th>
-                                            <!--                    <th>Thứ tự nhãn hiệu</th>-->
-                                            <th>Ngày tạo </th>
-                                            <th>Ngày sửa </th>
-                                            <th>Thao tác</th>
-                                        </tr>
-                                        <tr>
-                                            <form method="GET" >
-                                                <th>
-                                                    <input type="text" name="id"  class="form-control search-input">
-                                                </th>
-                                                <th>
-                                                    <input type="text" name="name"  class="form-control search-input">
-                                                </th>
 
-                                                <th>
-                                                    <select name="status" class="form-control search-select" >
-                                                        <option value="">Tất cả</option>
-                                                        <option value="0">Ẩn</option>
-                                                        <option value="1">Hiển thị</option>
-                                                    </select>
-                                                </th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <input type="hidden" name="page" >
-                                            </form>
+                                            <th>STT</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Gía Nhập</th>
+                                            <th>Gía Bán</th>
+                                            <th>Số Lượng</th>
+                                            <th>Thuế(%)</th>
+                                            <th> Được Khuyến mãi</th>
+                                            <th>Trạng Thái</th>
+                                            <th>Thao tác</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-<<<<<<< Updated upstream
-=======
                                         <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
                                             <tr >
                                                 <td>${stt.index+1}</td>
                                                 <td>${pgg.name}</td>
-                                                <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
-                                                <td>${pgg.create_date}</td>
-                                                <td>${pgg.last_modifeed_date}</td>
->>>>>>> Stashed changes
+                                                <td></td>
+                                                <td>${pgg.price}</td>
+                                                <td>${pgg.quantity}</td>
+                                                <td>10</td>
+                                                <td></td>
+                                                <td>${pgg.status_?"Mở Bán":"Không Bán"}</td>
+                                                <td>
+                                                    <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                        href="">Xem Chi Tiết</a>
+                                                    </button>
 
-                                        </tbody>
-<<<<<<< Updated upstream
-=======
-                                        <p>Số Lượng Size : ${page.getTotalElements()} </p>
+
+                                                </td>
+
+                                            </tr>
+                                        </c:forEach>
+                                        </TBODY>
+
+                                        <p>Số Lượng Giay: ${page.getTotalElements()} </p>
                                         <div class="text-center">
                                             <c:if test="${ page.getNumber() + 1 > 1}">
                                                 <a href="?page=${page.getNumber() + 1 - 1}&name=${param.name}">
@@ -156,22 +124,16 @@
                                                 </a>
                                             </c:if>
                                         </div>
->>>>>>> Stashed changes
+                                        </tbody>
                                     </table>
                                     <br>
                                     <!-- Pagination -->
                                     <nav aria-label="Page navigation">
-                                        <ul class="pagination" ></ul>
+                                        <ul class="pagination" id="pagination"></ul>
                                     </nav>
                                 </div>
                             </section>
-
-
-
-                        </section>
-                    </form>
-                </section>
-                <!--end-->
+                            <!--end-->
             </div>
         </div>
     </div>

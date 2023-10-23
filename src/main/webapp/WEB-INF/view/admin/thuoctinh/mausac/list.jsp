@@ -27,7 +27,13 @@
 </head>
 
 <body class="">
-<div class="wrapper ">
+<div class="container mt-4">
+<%--    <h1>Tìm kiếm Mẫu Sắc</h1>--%>
+<%--    <form action="/mau-sac/listms" method="get" class="form-inline my-2 my-lg-0">--%>
+<%--        <input type="text" class="form-control mr-sm-2" name="ten" placeholder="Tìm kiếm theo tên">--%>
+<%--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>--%>
+<%--    </form>--%>
+</div><div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
         <div class="logo">
             <a href="/product" class="simple-text logo-mini">
@@ -84,11 +90,17 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <a href="/mau-sac/mausac" class="btn btn-info">Thêm mới Mau Sắc<i
-                                                ></i></a>
+                                                <a href="/mau-sac/mausac" class="btn btn-info">Thêm mới Mau Sắc
+                                                  </a>
 
-                                                <button class="btn btn-success">Tìm kiếm <i
-                                                        class="fas fa-search"></i></button>
+
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <a href="/mau-sac/tim-kiem" class="btn btn-info">tìm kiếm
+                                                </a>
+
+
 
                                             </div>
                                         </div>
@@ -133,7 +145,7 @@
                                         <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
                                             <tr >
                                                 <td>${stt.index+1}</td>
-                                                <td>${pgg.name_}</td>
+                                                <td>${pgg.name}</td>
                                                 <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
                                                 <td>${pgg.create_date}</td>
                                                 <td>${pgg.last_modifeed_date}</td>
@@ -149,17 +161,52 @@
                                         </tbody>
                                         <p>Số Lượng Màu Sắc : ${page.getTotalElements()} </p>
                                         <div class="text-center">
-                                            <c:if test="${ page.getNumber() + 1 > 1}">
-                                                <a href="?page=${page.getNumber() + 1 - 1}&name_=${param.name_}">
-                                                    Previous
-                                                </a>
-                                            </c:if>
-                                            <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
-                                            <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
-                                                <a href="?page=${page.getNumber() + 1 + 1} &name_=${param.ten}">
-                                                    Next
-                                                </a>
-                                            </c:if>
+                                            <c:choose>
+                                                <c:when test="${page.totalPages > 1}">
+                                                    <nav aria-label="Page navigation">
+                                                        <ul class="pagination">
+                                                            <c:choose>
+                                                                <c:when test="${page.number == 0}">
+                                                                    <li class="page-item disabled">
+                                                                        <a class="page-link">Trang đầu</a>
+                                                                    </li>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <li class="page-item">
+                                                                        <a class="page-link" href="/mau-sac/listms?ten=${ten}&page=0">Trang đầu</a>
+                                                                    </li>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:forEach begin="0" end="${page.totalPages - 1}" varStatus="i">
+                                                                <c:choose>
+                                                                    <c:when test="${page.number == i.index}">
+                                                                        <li class="page-item active">
+                                                                            <a class="page-link"><c:out value="${i.index + 1}" /></a>
+                                                                        </li>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <li class="page-item">
+                                                                            <a class="page-link" href="/mau-sac/listms?ten=${ten}&page=${i.index}"><c:out value="${i.index + 1}" /></a>
+                                                                        </li>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                            <c:choose>
+                                                                <c:when test="${page.number == page.totalPages - 1}">
+                                                                    <li class="page-item disabled">
+                                                                        <a class="page-link">Trang cuối</a>
+                                                                    </li>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <li class="page-item">
+                                                                        <a class="page-link" href="/mau-sac/listms?ten=${ten}&page=${page.totalPages - 1}">Trang cuối</a>
+                                                                    </li>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </ul>
+                                                    </nav>
+                                                </c:when>
+                                            </c:choose>
                                         </div>
                                     </table>
                                     <br>
@@ -201,6 +248,10 @@
             demo.initChartsPages();
         });
     </script>
+</div>
+</div>
+</div>
+</div>
 </body>
 
 </html>

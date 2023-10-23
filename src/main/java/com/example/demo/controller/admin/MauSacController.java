@@ -95,16 +95,31 @@ public class MauSacController {
 
 
     List<MauSac> listMS = new ArrayList<>();
+
+    // Trong Controller
+    @GetMapping("/tim-kiem")
+    public String thuoctinh(Model model, @RequestParam(defaultValue = "0") int page,
+                            @RequestParam(name = "ten", required = false) String keyword) {
+        if (page < 0) page = 0;
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<MauSac> mauSacs = mauSacService.timKiemVaPhanTrang(keyword, pageable);
+        model.addAttribute("page", mauSacs);
+        return "admin/thuoctinh/mausac/tk";
+    }
+
     @GetMapping("/listms")
-    public String thuoctinh(Model model , @RequestParam(defaultValue = "1") int page
-            , @RequestParam(name = "ten", required = false) String keyword){
-        Page<MauSac> mauSacs ;
-        if(page<1) page=1;
-        Pageable pageable= PageRequest.of(page-1,5);
-        mauSacs =mauSacRepository.findAll(pageable);
-        model.addAttribute("page",mauSacs);
+    public String view(Model model, @RequestParam(defaultValue = "0") int page,
+                            @RequestParam(name = "ten", required = false) String keyword) {
+        if (page < 0) page = 0;
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<MauSac> mauSacs = mauSacRepository.findAll(pageable);
+        listMS = mauSacRepository.findAll();
+        model.addAttribute("page", mauSacs);
+        model.addAttribute("ms", mauSacs);
         return "admin/thuoctinh/mausac/list";
     }
+
+
     @GetMapping("/mausac")
     public String them(Model model){
 

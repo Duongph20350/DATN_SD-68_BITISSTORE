@@ -82,11 +82,21 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
+<<<<<<< Updated upstream
                                                 <a href="/kieudang" class="btn btn-info">Thêm mới Form<i
                                                 ></i></a>
+=======
+                                                <a href="/kieudang" class="btn btn-info">Thêm mới Kiểu dáng
+                                                </a>
 
-                                                <button class="btn btn-success">Tìm kiếm <i
-                                                        class="fas fa-search"></i></button>
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <a href="/mau-sac/tim-kiem" class="btn btn-info">tìm kiếm
+                                                </a>
+
+>>>>>>> Stashed changes
+
 
                                             </div>
                                         </div>
@@ -128,8 +138,35 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+<<<<<<< Updated upstream
+=======
+                                        <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
+                                            <tr >
+                                                <td>${stt.index+1}</td>
+                                                <td>${pgg.name}</td>
+                                                <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+                                                <td>${pgg.create_date}</td>
+                                                <td>${pgg.last_modifeed_date}</td>
+>>>>>>> Stashed changes
 
                                         </tbody>
+<<<<<<< Updated upstream
+=======
+                                        <p>Số Lượng Size : ${page.getTotalElements()} </p>
+                                        <div class="text-center">
+                                            <c:if test="${ page.getNumber() + 1 > 1}">
+                                                <a href="?page=${page.getNumber() + 1 - 1}&name=${param.name}">
+                                                    Previous
+                                                </a>
+                                            </c:if>
+                                            <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
+                                            <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
+                                                <a href="?page=${page.getNumber() + 1 + 1} &name=${param.ten}">
+                                                    Next
+                                                </a>
+                                            </c:if>
+                                        </div>
+>>>>>>> Stashed changes
                                     </table>
                                     <br>
                                     <!-- Pagination -->

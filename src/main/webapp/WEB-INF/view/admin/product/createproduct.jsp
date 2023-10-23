@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -37,59 +38,55 @@
             <a href="/homepageadmin" class="simple-text logo-normal">
                 BITI'S STORE</a>
         </div>
-        <jsp:include page="../../../layout/admin/header.jsp"></jsp:include>
+        <jsp:include page="../../layout/admin/header.jsp"></jsp:include>
 
-        <jsp:include page="../../../layout/admin/headerngang.jsp"></jsp:include>
+        <jsp:include page="../../layout/admin/headerngang.jsp"></jsp:include>
         <!--  start   -->
         <div class="main-panel">
             <div class="content">
                 <!--  start   -->
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-outline">
-                                <div class="card-body pad">
 
-                                    <header class="card-header">
-                                        <div class="card-actions">
-                                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-                                        </div>
-                                        <h2 class="card-title">Thêm Kiểu Dáng</h2>
-                                    </header>
-                                    <div class="modal-body">
-<<<<<<< Updated upstream
-                                        <form id="formCategory">
-                                            <input type="text" class="form-control" name="new_category" id="new_category"
-                                                   placeholder="Nhập tên kiểu dáng mới">
-=======
-                                        <form:form action="/createkd" method="post" modelAttribute="addKieuDang"
-                                                   onsubmit="if(!confirm('Ban Muon Them?')){return false}else{alert('Them Thanh Cong');}"
+                <section class="card">
+
+                    <div class="card-body ">
+                        <!-- Main content -->
+                        <div class="row">
+                            <div class="col-lg-4 col-md-8 col-12">
+                                <div class="card card-outline">
+                                    <div class="card-body pad promotion-box">
+                                        <form:form action="/add_product" method="post" modelAttribute="addproduct"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Sản Phẩm?')){return false}else{alert('Them Thanh Cong');}"
                                                    id="formCategory">
-                                            <label>Tên Kiểu Dáng</label>
+                                            <label>Tên Sản Phẩm</label>
                                             <input type="text" class="form-control" name="name"
-                                                   value="${addKieuDang.name}"
-                                                   placeholder="Nhập Kiểu Dáng"><form:errors path="name"/><br>
->>>>>>> Stashed changes
+                                                   value="${ addpr.name}"
+                                                   placeholder="Nhập tên sản phẩm"><form:errors path="name"/><br>
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="active" checked>
-                                                    <label class="custom-control-label" for="active">Kích hoạt kiểu dáng</label>
+                                                    <input type="checkbox" class="custom-control-input" id="active"
+                                                           checked>
+                                                    <input type="hidden" id="status" name="status_">
+                                                    <label class="custom-control-label" for="active">Kích hoạt
+                                                        Sản Phẩm</label>
                                                 </div>
                                             </div>
-
                                             <div class="modal-footer">
-
-                                                <a type="button" class="btn btn-secondary" data-dismiss="modal" href="/listkd">Hủy</a>
+                                                <a type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                   href="/product">Hủy</a>
                                                 <button type="submit" class="btn btn-primary">Thêm</button>
                                             </div>
-                                        </form>
+                                        </form:form>
 
-
-
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </section>
+
                 <!--end-->
             </div>
         </div>
@@ -111,10 +108,20 @@
     <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="../admin/demo/demo.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
             demo.initChartsPages();
         });
+        function initializeStatus() {
+            var isActive = document.getElementById('active').checked ? 1 : 0;
+            document.getElementById('status').value = isActive;
+        }
+
+        document.getElementById('active').addEventListener('change', initializeStatus);
+
+        // Gọi hàm khởi tạo khi trang tải
+        initializeStatus();
+
     </script>
 </body>
 

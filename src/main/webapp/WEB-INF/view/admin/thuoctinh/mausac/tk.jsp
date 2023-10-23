@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,13 @@
 </head>
 
 <body class="">
-<div class="wrapper ">
+<div class="container mt-4">
+    <%--    <h1>Tìm kiếm Mẫu Sắc</h1>--%>
+    <%--    <form action="/mau-sac/listms" method="get" class="form-inline my-2 my-lg-0">--%>
+    <%--        <input type="text" class="form-control mr-sm-2" name="ten" placeholder="Tìm kiếm theo tên">--%>
+    <%--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>--%>
+    <%--    </form>--%>
+</div><div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
         <div class="logo">
             <a href="/product" class="simple-text logo-mini">
@@ -56,7 +64,7 @@
                                     <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                     <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                 </div>
-                                <h2 class="card-title">Danh sách Thuộc Tính</h2>
+                                <h2 class="card-title">Danh sách Màu Sắc</h2>
                                 <br>
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -76,17 +84,20 @@
                                         <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                         <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                     </div>
-                                    <h2 class="card-title">Danh sách Size</h2>
+                                    <h2 class="card-title">Danh sách Màu Sắc</h2>
                                 </header>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="mb-3">
-                                                <a href="/size" class="btn btn-info">Thêm mới Size<i
-                                                ></i></a>
 
-                                                <button class="btn btn-success">Tìm kiếm <i
-                                                        class="fas fa-search"></i></button>
+                                            <div class="mb-3">
+                                                <h1>Tìm kiếm Mẫu Sắc</h1>
+                                                <form action="/mau-sac/tim-kiem" method="get" class="form-inline my-2 my-lg-0">
+                                                    <input type="text" class="form-control mr-sm-2" name="ten" placeholder="Tìm kiếm theo tên">
+                                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                                                </form>
+
+
 
                                             </div>
                                         </div>
@@ -95,8 +106,8 @@
 
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Size</th>
+                                            <th>STT</th>
+                                            <th>Màu Sắc</th>
                                             <th>Trạng thái </th>
                                             <!--                    <th>Thứ tự nhãn hiệu</th>-->
                                             <th>Ngày tạo </th>
@@ -128,8 +139,6 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-<<<<<<< Updated upstream
-=======
                                         <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
                                             <tr >
                                                 <td>${stt.index+1}</td>
@@ -137,26 +146,65 @@
                                                 <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
                                                 <td>${pgg.create_date}</td>
                                                 <td>${pgg.last_modifeed_date}</td>
->>>>>>> Stashed changes
 
+
+                                                <td>
+                                                    <a href="/mau-sac/view-edit/${pgg.id}">Update</a>
+                                                    <a href="/mau-sac/delete/${pgg.id}">Delete</a>
+                                                </td>
+
+                                            </tr>
+                                        </c:forEach>
                                         </tbody>
-<<<<<<< Updated upstream
-=======
-                                        <p>Số Lượng Size : ${page.getTotalElements()} </p>
+                                        <p>Số Lượng Màu Sắc : ${page.getTotalElements()} </p>
                                         <div class="text-center">
-                                            <c:if test="${ page.getNumber() + 1 > 1}">
-                                                <a href="?page=${page.getNumber() + 1 - 1}&name=${param.name}">
-                                                    Previous
-                                                </a>
-                                            </c:if>
-                                            <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
-                                            <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
-                                                <a href="?page=${page.getNumber() + 1 + 1} &name=${param.ten}">
-                                                    Next
-                                                </a>
-                                            </c:if>
+                                            <c:choose>
+                                                <c:when test="${page.totalPages > 1}">
+                                                    <nav aria-label="Page navigation">
+                                                        <ul class="pagination">
+                                                            <c:choose>
+                                                                <c:when test="${page.number == 0}">
+                                                                    <li class="page-item disabled">
+                                                                        <a class="page-link">Trang đầu</a>
+                                                                    </li>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <li class="page-item">
+                                                                        <a class="page-link" href="/mau-sac/listms?ten=${ten}&page=0">Trang đầu</a>
+                                                                    </li>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:forEach begin="0" end="${page.totalPages - 1}" varStatus="i">
+                                                                <c:choose>
+                                                                    <c:when test="${page.number == i.index}">
+                                                                        <li class="page-item active">
+                                                                            <a class="page-link"><c:out value="${i.index + 1}" /></a>
+                                                                        </li>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <li class="page-item">
+                                                                            <a class="page-link" href="/mau-sac/listms?ten=${ten}&page=${i.index}"><c:out value="${i.index + 1}" /></a>
+                                                                        </li>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                            <c:choose>
+                                                                <c:when test="${page.number == page.totalPages - 1}">
+                                                                    <li class="page-item disabled">
+                                                                        <a class="page-link">Trang cuối</a>
+                                                                    </li>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <li class="page-item">
+                                                                        <a class="page-link" href="/mau-sac/listms?ten=${ten}&page=${page.totalPages - 1}">Trang cuối</a>
+                                                                    </li>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </ul>
+                                                    </nav>
+                                                </c:when>
+                                            </c:choose>
                                         </div>
->>>>>>> Stashed changes
                                     </table>
                                     <br>
                                     <!-- Pagination -->
@@ -197,6 +245,10 @@
             demo.initChartsPages();
         });
     </script>
+</div>
+</div>
+</div>
+</div>
 </body>
 
 </html>

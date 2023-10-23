@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
+
 @Table(name = "color")
 @Getter
 @Setter
@@ -35,8 +36,8 @@ public class MauSac {
 @GeneratedValue(strategy = GenerationType.UUID)
 @Column(name = "id")
 private UUID id;
-    @Column(name = "name_")
-    private String name_ ;
+    @Column(name = "name")
+    private String name;
     @Column(name = "create_by")
     private String create_by;
     @Column(name = "create_date")

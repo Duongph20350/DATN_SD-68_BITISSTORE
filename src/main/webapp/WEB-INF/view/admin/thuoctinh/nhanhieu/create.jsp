@@ -58,9 +58,19 @@
                                         <h2 class="card-title">Thêm Nhãn Hiệu</h2>
                                     </header>
                                     <div class="modal-body">
+<<<<<<< Updated upstream
                                         <form id="formCategory">
                                             <input type="text" class="form-control" name="new_category" id="new_category"
                                                    placeholder="Nhập tên Nhãn hiệu mới">
+=======
+                                        <form:form action="/createnh" method="post" modelAttribute="addnhanhieu"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Nhãn Hiệu?')){return false}else{alert('Them Thanh Cong');}"
+                                                   id="formCategory">
+                                            <label>Tên Size</label>
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${addnhanhieu.name}"
+                                                   placeholder="Nhập nhãn hiệu"><form:errors path="name"/><br>
+>>>>>>> Stashed changes
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">

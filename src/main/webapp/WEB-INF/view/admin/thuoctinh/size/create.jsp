@@ -58,9 +58,19 @@
                                             <h2 class="card-title">Thêm Size</h2>
                                         </header>
                                     <div class="modal-body">
+<<<<<<< Updated upstream
                                         <form id="formCategory">
                                             <input type="text" class="form-control" name="new_category" id="new_category"
                                                    placeholder="Nhập Size">
+=======
+                                        <form:form action="/create" method="post" modelAttribute="addSize"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Sie?')){return false}else{alert('Thêm Thành Công');}"
+                                                   id="formCategory">
+                                            <label>Tên Size</label>
+                                            <input type="text" class="form-control" name="name"
+                                                   value="${addSize.name}"
+                                                   placeholder="Nhập Size"><form:errors path="name"/> <br>
+>>>>>>> Stashed changes
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">

@@ -135,8 +135,13 @@
                                             <tr >
                                                 <td>${stt.index+1}</td>
                                                 <td>${pgg.id}</td>
+<<<<<<< Updated upstream
                                                 <td>${pgg.name_}</td>
                                                 <td>${pgg.status_}</td>
+=======
+                                                <td>${pgg.name}</td>
+                                                <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+>>>>>>> Stashed changes
                                                 <td>${pgg.create_date}</td>
                                                 <td>${pgg.last_modifeed_date}</td>
 
@@ -152,13 +157,13 @@
                                         <p>Số Lượng Xuất Xứ : ${page.getTotalElements()} </p>
                                         <div class="text-center">
                                             <c:if test="${ page.getNumber() + 1 > 1}">
-                                                <a href="?page=${page.getNumber() + 1 - 1}&name_=${param.name_}">
+                                                <a href="?page=${page.getNumber() + 1 - 1}&name=${param.name}">
                                                     Previous
                                                 </a>
                                             </c:if>
                                             <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>
                                             <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">
-                                                <a href="?page=${page.getNumber() + 1 + 1} &name_=${param.ten}">
+                                                <a href="?page=${page.getNumber() + 1 + 1} &name=${param.ten}">
                                                     Next
                                                 </a>
                                             </c:if>

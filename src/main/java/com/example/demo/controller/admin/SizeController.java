@@ -11,6 +11,8 @@ public class SizeController {
 
         return "admin/thuoctinh/size/list";
     }
+
+    
     @GetMapping("/size")
     public String them(Model model){
 

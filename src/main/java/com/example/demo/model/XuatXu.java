@@ -18,8 +18,14 @@ public class XuatXu {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
+<<<<<<< Updated upstream
     @Column(name = "name_")
     private String name_ ;
+=======
+    @Column(name = "name")
+    private String name ;
+    @Column(name = "create_by")
+>>>>>>> Stashed changes
     private String create_by;
     private Date create_date;
     private Date  last_modifeed_date;
