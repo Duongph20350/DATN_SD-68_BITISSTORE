@@ -13,6 +13,8 @@
     <meta name="author" content="Your name">
     <meta name = "format-detection" content = "telephone=no" />
     <!--CSS-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/shop/css/bootstrap.css" type="text/css" >
     <link rel="stylesheet" href="/shop/css/style.css" type="text/css">
@@ -130,103 +132,169 @@
         </nav>
     </main>
 
+<div class="container">
+    <div class="main-panel">
+        <div class="content">
+            <!--  start   -->
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="order-summary">
-                            <h3>Đơn hàng</h3>
-                            <div class="collapse show" id="order-cart-section">
-                                <table class="table table-mini-cart">
-                                    <tbody>
-                                    <tr>
-                                        <td class="product-col">
-                                            <figure class="product-image-container">
-                                                <!--                                        <a href="product.html" class="product-image">-->
 
-                                                <!--                                        </a>-->
-                                            </figure>
-                                            <div>
-                                                <h2 class="product-title">
 
-                                                </h2>
 
-                                            </div>
-                                        </td>
-                                        <td class="price-col"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <!-- Pricing Section-->
-                                <div class="pricing childs">
+                        <section class="section">
+                            <div class="row">
+                                <div class="col-lg-6">
 
-                                    <div class="size-btn" data-toggle="modal" data-target="#modal-size-Choose">
-                                        <button class="btn btn-primary size trans-btn"><span class="size-text">Size</span><i class="fas dropdown-arrow"></i></button>
-                                    </div>
-                                    <div class="input-group" style="margin-top:30px">
-                                        <input type="text" class="form-control" placeholder="Nhập mã khuyến mãi" id="in-coupon">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button" id="btn-apply-coupon">Áp dụng</button>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Thông Tin Khách Hàng</h5>
+
+                                            <!-- General Form Elements -->
+                                            <form>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Mã Hóa Đơn</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Tên Khách Hàng</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Địa Chỉ</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="password" class="form-control">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Địa chỉ chi tiết</label>
+                                                    <div class="col-sm-10">
+                                                            <textarea class="form-control"
+                                                                      style="height: 100px"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Số Điện Thoại</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="input-group mb-3">
+
+                                                    <input type="text" class="form-control" placeholder="Khuyến mại"
+                                                           aria-label="Username">
+                                                    <span class="input-group-text"></span>
+
+                                                    <input type="text" class="form-control" placeholder="Tổng Tiền"
+                                                           aria-label="Server">
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Phương Thức Mua
+                                                        Hàng</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-select"
+                                                                aria-label="Default select example">
+                                                            <option selected>Online</option>
+                                                            <option value="1">Bán Tại Quầy</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Phương Thức Thanh
+                                                        Toán</label>
+                                                    <div class="col-sm-10">
+                                                        <select class="form-select"
+                                                                aria-label="Default select example">
+                                                            <option selected>PAY</option>
+                                                            <option value="1">Tiền Mặt</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label">Ghi Chú</label>
+                                                    <div class="col-sm-10">
+                                                            <textarea class="form-control"
+                                                                      style="height: 100px"></textarea>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </form><!-- End General Form Elements -->
+
                                         </div>
                                     </div>
-                                    <div class="coupon price-include">
-                                        <div class="text">Tạm tính</div>
-                                        <input class="form-control text-price-input" id="in-price" type="text" readonly/>
-                                    </div>
-                                    <div class="coupon price-include">
-                                        <div class="text">Khuyến mãi</div>
-                                        <input class="form-control text-price-input" id="in-promotion-value" type="text" readonly/>
-                                    </div>
-                                    <div class="coupon price-include">
-                                        <div class="text">Tổng thanh toán</div>
-                                        <input class="form-control text-price-input" id="in-total-price" type="text" readonly/>
-                                    </div>
-                                    <div class="size-btn" data-toggle="modal" data-target="#modal-size-Choose">
-                                        <button class="btn btn-primary size trans-btn"><span class="size-text">Thanh Toán Bằng</span><span  class="size-details">Khi Nhận hàng</span>
 
-
-                                            <i class="fas dropdown-arrow"></i></button>
-                                    </div>
                                 </div>
 
-                                <button type="button" class="btn btn-primary confirm-btn red-btn" id="btn-buy-now" >ĐẶT HÀNG</button>
-                            </div><!-- End #order-cart-section -->
-                        </div><!-- End .order-summary -->
-                    </div><!-- End .col-lg-4 -->
+                                <div class="col-lg-6">
 
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="checkout-payment">
-                            <h2 class="step-title">Thông tin nhận hàng</h2>
-                            <div id="new-checkout-address" class="show">
-                                <form action="#">
-                                    <div class="form-group required-field">
-                                        <label>Tên người nhận </label>
-                                        <input type="text" class="form-control"  name="receiver_name" id="receiver_name" required>
-                                        <div class="invalid-feedback"></div>
-                                    </div><!-- End .form-group -->
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Giỏ Hàng</h5>
 
-                                    <div class="form-group required-field">
-                                        <label>Số điện thoại </label>
-                                        <input type="text" class="form-control"  name="receiver_phone" id="receiver_phone">
-                                        <div class="invalid-feedback"></div>
-                                    </div><!-- End .form-group -->
+                                            <!-- Advanced Form Elements -->
+                                            <form>
+                                                <div class="row mb-5">
+                                                    <label class="col-sm-2 col-form-label">Sản Phẩm</label>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Tìm Kiếm Sản Phẩm">
 
-                                    <div class="form-group required-field">
-                                        <label>Địa chỉ nhận hàng</label>
-                                        <textarea type="text" class="form-control"  name="receiver_address" id="receiver_address" required></textarea>
-                                        <div class="invalid-feedback"></div>
-                                    </div><!-- End .form-group -->
+                                                    </div>
+                                                    <table class="table table-bordered table-striped mb-0" id="datatable-editable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th width="15%">STT</th>
+                                                            <th width="15%">Sản Phẩm</th>
+                                                            <th>Số Lượng</th>
+                                                            <th>Đơn Gía</th>
+                                                            <th>Thuế(%)</th>
+                                                            <th>Thành Tiền(VND)</th>
+                                                            <th>Thao Tác</th>
+                                                        </tr>
 
-                                    <div class="form-group">
-                                        <label>Ghi chú </label>
-                                        <textarea type="text" class="form-control" id="notes"></textarea>
-                                    </div><!-- End .form-group -->
-                                </form>
-                            </div><!-- End #new-checkout-address -->
-                        </div><!-- End .checkout-payment -->
-                    </div><!-- End .col-lg-8 -->
-                </div><!-- End .row -->
-            </div><!-- End .container -->
+                                                        </thead>
+                                                        <tbody>
+                                                        <Td>1</Td>
+                                                        <Td>NIKE ARI FORD ONE</Td>
+                                                        <Td>2</Td>
+                                                        <Td>1.000.000</Td>
+                                                        <Td>10</Td>
+                                                        <Td>2.000.00</Td>
+                                                        <Td><a>Delete</a></Td>
+
+                                                        </TBODY>
+
+
+                                                    </table>
+                                                </div>
+
+                                            </form><!-- End General Form Elements -->
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+
+            </section>
+
+            </section>
+
+            <!--end-->
+        </div>
+    </div>
+</div>
 
         </main><!-- End .main -->
 
