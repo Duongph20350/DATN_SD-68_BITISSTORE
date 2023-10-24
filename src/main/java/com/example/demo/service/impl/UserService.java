@@ -13,6 +13,8 @@ import java.util.UUID;
 
 @Service
 public class UserService implements IUserService {
+    private final long date = System.currentTimeMillis();
+    private final Date dateNow = new Date(date);
     @Autowired
     IUserResponsitory iUserResponsitory;
 
@@ -30,10 +32,11 @@ public class UserService implements IUserService {
                 .id(user.getId())
                 .full_name(user.getFull_name())
                 .email(user.getEmail())
+                .password(user.getPassword())
                 .phone_number(user.getPhone_number())
+                .created_date(dateNow)
                 .citizen_identity(user.getCitizen_identity())
                 .address_(user.getAddress_())
-                .created_date(user.getCreated_date())
                 .status_(user.getStatus_())
                 .build();
         return iUserResponsitory.save(updaUser1);
@@ -42,5 +45,20 @@ public class UserService implements IUserService {
     @Override
     public User detailuser(UUID id) {
         return iUserResponsitory.findById(id).orElse(null);
+    }
+
+    @Override
+    public User adduser(User user) {
+         User newUser1= new User().builder()
+                .full_name(user.getFull_name())
+                .email(user.getEmail())
+                 .password(user.getPassword())
+                 .phone_number(user.getPhone_number())
+                 .created_date(dateNow)
+                 .citizen_identity(user.getCitizen_identity())
+                 .address_(user.getAddress_())
+                 .status_(user.getStatus_())
+                .build();
+        return iUserResponsitory.save(newUser1);
     }
 }

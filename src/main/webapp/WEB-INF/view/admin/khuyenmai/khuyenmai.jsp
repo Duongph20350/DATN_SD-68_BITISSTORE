@@ -75,6 +75,7 @@
                                     <th width="15%">Mã khuyến mại</th>
                                     <th>Tên khuyến mại</th>
                                     <th>Trạng thái</th>
+
                                     <th>Giá trị</th>
                                     <th>Gía trị tối đa</th>
                                     <th>Điều Kiện</th>
@@ -114,6 +115,7 @@
                                         <td>${pgg.code}</td>
                                         <td>${pgg.name_}</td>
                                         <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+
                                         <td>${pgg.value_}</td>
                                         <td>${pgg.maximum_value}</td>
                                         <td> Đơn Tối Thiểu ${pgg.condition}</td>

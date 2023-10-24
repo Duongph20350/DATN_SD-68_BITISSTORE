@@ -1,5 +1,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -89,6 +92,7 @@
                                                        placeholder="Nhập Tên Chương Trình"><form:errors path="name_"/> <br>
                                                 <br>
                                             </div>
+
                                             <div class="form-group">
                                                 <div>
                                                     <label class="required-label" >Mức giảm</label>

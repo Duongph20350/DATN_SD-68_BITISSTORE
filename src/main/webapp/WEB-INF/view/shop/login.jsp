@@ -22,6 +22,8 @@
             <h1>Đăng Ký</h1>
             <input type="text" placeholder="Name" />
             <input type="email" placeholder="Email" />
+            <input type="password" placeholder="CCCD" />
+            <input type="password" placeholder="Address" />
             <input type="password" placeholder="Password" />
             <p></p>
             <button>Đăng Ký</button>
@@ -42,7 +44,7 @@
             <div class="overlay-panel overlay-left">
                 <h1>Chào Bạn Quay Lại</h1>
                 <p>Đăng nhập để không bỏ lỡ ưu đãi nào </p>
-                <button class="ghost" id="signIn">Sign In</button>
+                <button class="ghost" id="signIn">Đăng Nhập</button>
             </div>
             <div class="overlay-panel overlay-right">
                 <h1>Chào Bạn !</h1>

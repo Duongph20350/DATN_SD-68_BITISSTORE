@@ -41,6 +41,7 @@ public class Voucher {
     private  Integer quantity;
     private String maximum_value;
     private String condition;
+    private String kieukhuyenmai;
 
 
 
