@@ -53,38 +53,57 @@
                                 <div class="card-body pad">
 
                                     <div class="modal-body">
+                                        <label><h5>Thêm Tài Khoản</h5></label>
                                         <form:form action="/createuser" method="post" modelAttribute="addUser"
-                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Tài Khoản Không?')){return false}else{alert('Thêm Thành Công');}"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Tài Khoản Không?')){return false}else{alert('Thêm Thành Công Tài Khoản');}"
                                                    id="formCategory">
                                             <label>Tên Tài Khoản</label>
                                             <input type="text" class="form-control" name="full_name"
                                                    value="${addUser.full_name}"
-                                                   placeholder="Nhập Tên Tài Khoản"><form:errors path="full_name"/><br>
+                                                   placeholder="Nhập Tên Tài Khoản"
+                                                   required oninvalid="this.setCustomValidity('Bạn Chưa Nhập Tên')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="full_name"/><br>
                                             <br>
                                             <label>PassWord</label>
                                             <input type="text" class="form-control" name="password"
                                                    value="${addUser.password}"
-                                                   placeholder="Nhập PassWord"><form:errors path="password"/><br>
+                                                   placeholder="Nhập PassWord" required minlength="8"
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Password')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="password"/><br>
                                             <br>
                                             <label>Email</label>
                                             <input type="text" class="form-control" name="email"
                                                    value="${addUser.email}"
-                                                   placeholder="Nhập Email"><form:errors path="email"/><br>
+                                                   placeholder="Nhập Email"required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Email')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="email"/><br>
                                             <br>
                                             <label>Số Điện Thoại</label>
                                             <input type="text" class="form-control" name="phone_number"
                                                    value="${addUser.phone_number}"
-                                                   placeholder="Nhập Số Điện Thoại"><form:errors path="phone_number"/><br>
+                                                   placeholder="Nhập Số Điện Thoại" pattern="[0-9]+" required maxlength="10"
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Số Điện Thoại')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="phone_number"/><br>
                                             <br>
                                             <label>Số Căn Cước</label>
                                             <input type="text" class="form-control" name="citizen_identity"
                                                    value="${addUser.citizen_identity}"
-                                                   placeholder="Nhập Số Căn Cước"><form:errors path="citizen_identity"/><br>
+                                                   placeholder="Nhập Số Căn Cước" required
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Số Căn Cước')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="citizen_identity"/><br>
                                             <br>
                                             <label>Địa Chỉ</label>
                                             <input type="text" class="form-control" name="address_"
                                                    value="${addUser.address_}"
-                                                   placeholder="Nhập Địa Chỉ"><form:errors path="address_"/><br>
+                                                   placeholder="Nhập Địa Chỉ" required
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Địa Chỉ')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="address_"/><br>
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">
