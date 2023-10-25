@@ -81,8 +81,6 @@
                                 <th>Địa chỉ</th>
                                 <th>Ngày tạo</th>
                                 <th>Trạng Thái</th>
-                                <th>Loại</th>
-
                                 <th>Thao Tác</th>
                             </tr>
 
@@ -100,7 +98,7 @@
                                     <td>${pgg. address_}</td>
                                     <td>${pgg.created_date}</td>
                                     <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
-                                    <td></td>
+
                                     <td>
                                         <button  class="btn btn-primary"><a style="color: aliceblue"
                                                                             href="/view-editus/${pgg.id}">Mở Tài Khoản</a>

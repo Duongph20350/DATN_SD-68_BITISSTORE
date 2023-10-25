@@ -67,7 +67,7 @@
                                 <div class="card card-outline">
                                     <div class="card-body pad promotion-box">
                                         <form:form action="/add_voucher" method="post" modelAttribute="adddvoucher"
-                                                   onsubmit="if(!confirm('Ban Muon Them?')){return false}else{alert('Them Thanh Cong');}"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Khuyến Mãi Không?')){return false}else{alert('Thêm Thành Công Khuyến Mãi');}"
                                                    id="formCategory">
                                             <div class="form-group">
                                                 <div>
@@ -77,7 +77,9 @@
                                                     <label class="required-label" >Mã code</label>
                                                 </div>
                                                 <input type="text" class="form-control" name="code"
-                                                       value="${adddvoucher.code}"
+                                                       value="${adddvoucher.code}"required
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa Nhập Mã Voucher')"
+                                                       oninput="this.setCustomValidity('')"
                                                        placeholder="Nhập code Voucher"><form:errors path="code"/> <br>
                                                 <br>
                                             </div>
@@ -89,7 +91,8 @@
                                                 </div>
                                                 <input type="text" class="form-control" name="name_"
                                                        value="${adddvoucher.name_}"
-                                                       placeholder="Nhập Tên Chương Trình"><form:errors path="name_"/> <br>
+                                                       placeholder="Nhập Tên Chương Trình" required   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Tên Chương Trình')"
+                                                       oninput="this.setCustomValidity('')"><form:errors path="name_"/> <br>
                                                 <br>
                                             </div>
 
@@ -99,17 +102,19 @@
                                                     <span class="invalid-feedback" ></span>
                                                 </div>
                                                 <input type="text" class="form-control" name="value_"
-                                                       value="${adddvoucher.value_}"
+                                                       value="${adddvoucher.value_}" pattern="-?[0-9]+$" required
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa Nhập Mức Giảm')"
+                                                       oninput="this.setCustomValidity('')"
                                                        placeholder="Nhập mức giảm"><form:errors path="value_"/> <br>
                                                 <br>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <label class="required-label" >Mức giảm Tối đa</label>
+                                                    <label class="required-label" >Mức giảm Tối đa( Áp dụng cho giảm giá theo %) </label>
                                                     <span class="invalid-feedback" ></span>
                                                 </div>
                                                 <input type="text" class="form-control" name="maximum_value"
-                                                       value="${adddvoucher.maximum_value}"
+                                                       value="${adddvoucher.maximum_value}" pattern="-?[0-9]+$"
                                                        placeholder="Nhập mức giảm tối đa"><form:errors path="maximum_value"/> <br>
                                                 <br>
                                             </div>
@@ -120,8 +125,10 @@
                                                     <span class="invalid-feedback" ></span>
                                                 </div>
                                                 <input type="text" class="form-control" name="condition"
-                                                       value="${adddvoucher.condition}"
-                                                       placeholder="Nhập mức giảm"><form:errors path="condition"/> <br>
+                                                       value="${adddvoucher.condition}" pattern="-?[0-9]+$" required
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa Nhập Đơn tối Thiểu')"
+                                                       oninput="this.setCustomValidity('')"
+                                                       placeholder="Nhập mức giảm" ><form:errors path="condition"/> <br>
                                                 <br>
                                             </div>
                                             <div class="form-group">
@@ -130,7 +137,9 @@
                                                     <span class="invalid-feedback" ></span>
                                                 </div>
                                                 <input type="text" class="form-control" name="quantity"
-                                                       value="${adddvoucher.quantity}"
+                                                       value="${adddvoucher.quantity}"pattern="-?[0-9]+$" required
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa Nhập Số Lượng Voucher')"
+                                                       oninput="this.setCustomValidity('')"
                                                        placeholder="Nhập mức giảm"><form:errors path="quantity"/> <br>
                                                 <br>
                                             </div>
@@ -140,14 +149,19 @@
                                                     <label class="required-label" >Ngày bắt đầu</label>
 
                                                 </div>
-                                                <input type="date" class="form-control" name="start_date_" value="${adddvoucher.start_date_}" ><form:errors path="start_date_"/> <br>
+                                                <input type="date"  required
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa nhập ngày bắt đầu')"
+                                                       oninput="this.setCustomValidity('')" id="ngaybatdau" class="form-control" name="start_date_" value="${adddvoucher.start_date_}" ><form:errors path="start_date_"/> <br>
                                             </div>
                                             <div class="form-group">
                                                 <div>
                                                     <label class="required-label">Ngày hết hạn</label>
 
                                                 </div>
-                                                <input type="date" class="form-control " name="end_date" value="${adddvoucher.end_date}" ><form:errors path="end_date"/> <br>
+                                                <input type="date" class="form-control "  name="end_date"
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa nhập ngày kết thúc')"
+                                                       oninput="this.setCustomValidity('')"
+                                                       value="${adddvoucher.end_date}"  id="ngayketthuc"><form:errors path="end_date"/> <br>
                                             </div>
                                             <label>Trạng thái</label>
                                             <div class="form-group">
@@ -162,7 +176,7 @@
                                             <div class="modal-footer">
                                                 <a type="button" class="btn btn-secondary" data-dismiss="modal"
                                                    href="/khuyenmai">Hủy</a>
-                                                <button type="submit"   class="btn btn-primary btn-create-promotion">Tạo khuyến mại <i
+                                                <button type="submit" id="btnsumbit"   class="btn btn-primary btn-create-promotion">Tạo khuyến mại <i
                                                 ></i></button>
                                             </div>
                                         </form:form>
@@ -195,6 +209,29 @@
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="../admin/demo/demo.js"></script>
+    <script>
+        const ngaybatdau =document.querySelector('#ngaybatdau')
+        const ngayketthuc =document.querySelector('#ngayketthuc')
+        const btnsumbit =document.querySelector('#btnsumbit')
+        btnsumbit.addEventListener('click',function (){
+
+            const ngayhientai =new Date();
+            let ngaybatdau_v =new Date(ngaybatdau.value);
+            let next =true;
+            if(ngaybatdau_v<ngayhientai) {
+                alert("Ngày bắt đầu không được nhỏ hơn ngày hiện tại !");
+                 next =false;
+            }
+            let ngayketthuc_v = new Date(ngayketthuc.value);
+            if(ngayketthuc_v <ngaybatdau_v) {
+                alert("Ngày kết thúc không được nhỏ hơn ngày bắt đầu !");
+                next =false;
+            }
+            if(next){
+            document.querySelector('#formCategory')
+            }
+        })
+    </script>
     <script>
         $(document).ready(function () {
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
