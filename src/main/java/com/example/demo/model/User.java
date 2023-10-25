@@ -35,6 +35,7 @@ public class User {
     private String email;
     private Integer phone_number;
     private String address_;
+    private String password;
     @Column(name = "status_")
     private Integer status_;
 }

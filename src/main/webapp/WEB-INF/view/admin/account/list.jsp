@@ -49,6 +49,8 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="mb-3">
+                                <a href="/usercreat"  class="btn btn-info">Thêm Tài Khoản <i
+                                ></i></a>
                                 <a href="/view_addkm" id="addToTable" class="btn btn-info">Tìm Kiếm <i
                                 ></i></a>
 
@@ -73,13 +75,12 @@
                                 <th>STT</th>
                                 <th>Tên</th>
                                 <th>Email</th>
+                                <th>Password</th>
                                 <th>Số điện thoại</th>
                                 <th>Số Căn Cước</th>
                                 <th>Địa chỉ</th>
                                 <th>Ngày tạo</th>
                                 <th>Trạng Thái</th>
-                                <th>Loại</th>
-
                                 <th>Thao Tác</th>
                             </tr>
 
@@ -91,16 +92,18 @@
                                     <td>${stt.index+1}</td>
                                     <td>${pgg.full_name}</td>
                                     <td>${pgg.email}</td>
+                                    <td>${pgg.password}</td>
                                     <td>${pgg.phone_number}</td>
                                     <td>${pgg.citizen_identity}</td>
                                     <td>${pgg. address_}</td>
                                     <td>${pgg.created_date}</td>
                                     <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
-                                    <td></td>
+
                                     <td>
                                         <button  class="btn btn-primary"><a style="color: aliceblue"
                                                                             href="/view-editus/${pgg.id}">Mở Tài Khoản</a>
                                         </button>
+                                        <P></P>
                                         <button  class="btn btn-primary"><a style="color: aliceblue"
                                                                             href="/deleteuser/${pgg.id}">Khóa Tài Khoản</a>
                                         </button>

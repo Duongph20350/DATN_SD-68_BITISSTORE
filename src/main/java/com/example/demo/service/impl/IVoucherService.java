@@ -1,9 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Category;
-import com.example.demo.model.Size;
 import com.example.demo.model.Voucher;
-import com.example.demo.model.XuatXu;
 import com.example.demo.responsitory.IVoucherResponsitory;
 import com.example.demo.service.VoucherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +27,7 @@ public class IVoucherService implements VoucherService {
                 .name_(voucher.getName_())
                 .code(voucher.getCode())
                 .value_(voucher.getValue_())
+                .kieukhuyenmai(voucher.getKieukhuyenmai())
                 .maximum_value(voucher.getMaximum_value())
                 .condition(voucher.getCondition())
                 .quantity(voucher.getQuantity())

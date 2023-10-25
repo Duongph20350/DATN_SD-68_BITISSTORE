@@ -132,9 +132,10 @@
             <thead>
             <tr>
                 <th style="width:50%">Sản Phẩm</th>
-                <th style="width:10%">Gía Tiền</th>
+                <th style="width:10%">Đơn Gía(VND)</th>
                 <th style="width:8%">Số Lượng</th>
-                <th style="width:22%" class="text-center">Thành Tiền</th>
+                <th style="width:8%">Thuế(%)</th>
+                <th style="width:22%" class="text-center">Tổng Tiền</th>
                 <th style="width:10%"></th>
             </tr>
             </thead>
@@ -146,29 +147,29 @@
                         <div class="col-sm-10">
                             <h4 class="nomargin">Product 1</h4>
                             <p>Màu sắc</p>
-                            <p>sie</p>
+                            <p>Size</p>
+                            <p>Chất Liệu</p>
                         </div>
                     </div>
                 </td>
-                <td data-th="Price">$5.11</td>
+                <td data-th="Price">500.000</td>
                 <td data-th="Quantity">
                     <input type="number" class="form-control text-center" value="1">
                 </td>
-                <td data-th="Subtotal" class="text-center">$5.11</td>
+                <td data-th="Subtotal" class="text-center">10</td>
+                <td data-th="Subtotal" class="text-center">500.000</td>
                 <td class="actions" data-th="">
-                    <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+
                     <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
                 </td>
             </tr>
             </tbody>
             <tfoot>
-            <tr class="visible-xs">
-                <td class="text-center"><strong>Thành Tiền $ 5.11</strong></td>
-            </tr>
+
             <tr>
-                <td><a href="/sanpham" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td><a href="/sanpham" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp Tục Mua Sắm</a></td>
                 <td colspan="2" class="hidden-xs"></td>
-                <td class="hidden-xs text-center"><strong>Thành Tiền $ 5.11</strong></td>
+                <td class="hidden-xs text-center"><strong>Thành Tiền 500.000</strong></td>
                 <td><a href="/payment" class="btn btn-success btn-block">Thanh Toán <i class="fa fa-angle-right"></i></a></td>
             </tr>
             </tfoot>

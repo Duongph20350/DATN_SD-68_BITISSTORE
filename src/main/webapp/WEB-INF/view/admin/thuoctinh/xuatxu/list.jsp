@@ -135,7 +135,6 @@
                                         <c:forEach items="${page.getContent()}" var="pgg" varStatus="stt">
                                             <tr>
                                                 <td>${stt.index+1}</td>
-                                                <td>${pgg.id}</td>
                                                 <td>${pgg.name_}</td>
                                                 <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
                                                 <td>${pgg.create_date}</td>

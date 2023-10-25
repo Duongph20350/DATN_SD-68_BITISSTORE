@@ -69,4 +69,19 @@ public class UserController {
         userService.updateUser(neUser);
         return "redirect:/listuser";
     }
+    @GetMapping("/usercreat")
+    public String themuser(Model model){
+
+        return "admin/account/creat";
+    }
+    @PostMapping("/createuser")
+    public String addUser(Model model,@Valid @ModelAttribute("adduser") User newUser,
+                          BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/account/list";
+        } else {
+            userService.adduser(newUser);
+        }
+        return "redirect:/listuser";
+    }
 }
