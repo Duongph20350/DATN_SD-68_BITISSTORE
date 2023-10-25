@@ -78,8 +78,8 @@
 
                                             <th>STT</th>
                                             <th>Tên sản phẩm</th>
-                                            <th>Gía Nhập</th>
-                                            <th>Gía Bán</th>
+                                            <th>Giá Nhập</th>
+                                            <th>Giá Bán</th>
                                             <th>Số Lượng</th>
                                             <th>Thuế(%)</th>
                                             <th> Được Khuyến mãi</th>
@@ -92,10 +92,10 @@
                                             <tr >
                                                 <td>${stt.index+1}</td>
                                                 <td>${pgg.name_}</td>
-                                                <td></td>
-                                                <td>${pgg.price}</td>
-                                                <td>${pgg.quantity}</td>
-                                                <td>10</td>
+                                                <td>${pgg.soluong}</td>
+                                                <td>${pgg.gianhap}</td>
+                                                <td>${pgg.giaban}</td>
+                                                <td>${pgg.thue}</td>
                                                 <td></td>
                                                 <td>${pgg.status_?"Mở Bán":"Không Bán"}</td>
                                                 <td>
@@ -133,8 +133,16 @@
                                     </nav>
                                 </div>
                             </section>
+                        </section>
+
+                    </form>
+                </section>
                             <!--end-->
             </div>
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
     <!--   Core JS Files   -->

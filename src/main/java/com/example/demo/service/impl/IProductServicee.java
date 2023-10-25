@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.model.Product;
 import com.example.demo.model.Size;
 import com.example.demo.model.XuatXu;
+import com.example.demo.responsitory.IProductDetailResponsitory;
 import com.example.demo.responsitory.IproductResponsitory;
 import com.example.demo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,10 @@ import java.util.UUID;
 public class IProductServicee implements ProductService {
     @Autowired
     IproductResponsitory iproductResponsitory;
+
+    @Autowired
+    IProductDetailResponsitory productDetailResponsitory;
+
     @Override
     public void deletePproduct(UUID id) {
 iproductResponsitory.deleteById(id);
