@@ -16,11 +16,15 @@ public class SanPhamRequest {
 
     private UUID kieu;
 
+
     private String desc;
 
     private String price;
-
+    private String gianhap;
+    private String thue;
+    private Integer status_;
+    private Integer ckeckvoucher;
     private int quantity;
-
     private List<UUID> nameSize;
+
 }

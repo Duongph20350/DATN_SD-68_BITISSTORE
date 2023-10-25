@@ -56,8 +56,7 @@ public class ProductDetail {
     private Integer soluong;
     @Column(name = "maqr")
     private String maqr;
-    @Column(name = "anh")
-    private String anh;
+private Integer ckeckvoucher;
 
     @ManyToOne
     @JoinColumn(name = "id_product", referencedColumnName = "Id")

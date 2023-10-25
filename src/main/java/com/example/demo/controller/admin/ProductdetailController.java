@@ -9,6 +9,7 @@ import com.example.demo.model.Size;
 import com.example.demo.model.XuatXu;
 import com.example.demo.request.SanPhamRequest;
 import com.example.demo.responsitory.IProductDetailResponsitory;
+import com.example.demo.responsitory.Sizeresponsitory;
 import com.example.demo.service.CategoryService;
 import com.example.demo.service.KieuDangService;
 import com.example.demo.service.MauSacService;
@@ -29,10 +30,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,6 +44,8 @@ import java.util.UUID;
 public class ProductdetailController {
     @Autowired
     IProductDetailResponsitory iProductDetailResponsitory;
+    @Autowired
+    Sizeresponsitory sizeresponsitory;
     @Autowired
     ProductdetailService productdetailService = new IProductDetaiService();
     @Autowired
@@ -61,6 +67,7 @@ public class ProductdetailController {
             if (page < 1) page = 1;
             Pageable pageable = PageRequest.of(page - 1, 5);
             productDetails = iProductDetailResponsitory.findAll(pageable);
+
             model.addAttribute("page", productDetails);
             return "admin/product/productdetail";
         }
@@ -81,10 +88,28 @@ public class ProductdetailController {
 
             return "admin/product/create";}
 
-    @PostMapping("/product")
-    public String create(SanPhamRequest request){
+    @PostMapping("/productdt")
+    public String create( @Valid @ModelAttribute("add") ProductDetail productDetail,SanPhamRequest request,
+                         BindingResult result){
         request.getName();
-            return "";
+        if (result.hasErrors()) {
+            return "admin/product/create";
+        } else {
+            productdetailService.createProducts(request);
+        }
+        return "redirect:/productdetailadmin";
+
     }
+
+//    @PostMapping("/productdt")
+//    public String create( SanPhamRequest request){
+//        request.getName();
+//
+//        return "redirect:/productdetailadmin";
+////        redirect:/productdetailadmin
+//
+//    }
+
+
 
 }
