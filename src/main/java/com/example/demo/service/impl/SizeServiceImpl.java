@@ -27,7 +27,7 @@ public class SizeServiceImpl implements SizeService {
 
     @Override
     public List<Size> getAllSize() {
-        return null;
+        return sizeresponsitory.findAll();
     }
 
     @Override

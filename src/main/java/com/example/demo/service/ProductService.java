@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ProductService {
-    void deletePproduct(UUID id);
+
 
     Product addpr(Product product);
 
@@ -17,4 +17,5 @@ public interface ProductService {
     Product detail(UUID id);
 
     List<Product> getAll();
+    void deleteProduct(UUID id);
 }

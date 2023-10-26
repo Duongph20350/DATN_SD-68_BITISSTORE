@@ -95,7 +95,8 @@ public class ProductController {
 
     @GetMapping("/deleteproduct/{id}")
     private String deleteuser(@PathVariable("id") UUID id) {
-        productService.deletePproduct(id);
+        productService.deleteProduct(id);
+
         return "redirect:/product";
     }
 

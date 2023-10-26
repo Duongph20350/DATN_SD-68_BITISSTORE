@@ -49,6 +49,7 @@
                 </section>
                 <section role="main" class="content-body" id="main-content">
 
+
                     <form action="" id="formProduct">
                         <section class="card">
                             <header class="card-header">
@@ -58,15 +59,30 @@
                                 </div>
                                 <h2 class="card-title">Danh sách Thuộc Tính</h2>
                                 <br>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <a href="/product" class="btn btn-primary"><i
-                                                  ></i> Trở về</a>
-                                        </div>
+
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <!-- Bordered Tabs -->
+                                        <ul class="nav nav-tabs nav-tabs-bordered">
+
+                                            <li class="nav-item">
+                                                <button class="nav-link active" data-bs-toggle="tab"
+                                                        data-bs-target="#profile-overview"> <a style="color: black" href="/product">Sản Phẩm</a>
+                                                </button>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a
+                                                        style="color: black ;font-style: initial"  href="/thuoctinh">Thuộc Tính</a>
+                                                </button>
+                                            </li>
+
+
+                                        </ul>
                                     </div>
                                 </div>
-                                <p></p>
+
+
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="mb-3">

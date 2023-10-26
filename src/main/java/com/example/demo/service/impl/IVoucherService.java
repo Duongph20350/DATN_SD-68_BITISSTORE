@@ -27,7 +27,6 @@ public class IVoucherService implements VoucherService {
                 .name_(voucher.getName_())
                 .code(voucher.getCode())
                 .value_(voucher.getValue_())
-                .kieukhuyenmai(voucher.getKieukhuyenmai())
                 .maximum_value(voucher.getMaximum_value())
                 .condition(voucher.getCondition())
                 .quantity(voucher.getQuantity())
@@ -36,9 +35,7 @@ public class IVoucherService implements VoucherService {
                 .status_(voucher.getStatus_())
                 .build();
         return iVoucherResponsitory.save(newvVoucher1);
-
     }
-
     @Override
     public Voucher update(Voucher voucher) {
         Voucher voucher1= iVoucherResponsitory.findById(voucher.getId()).orElse(null).builder()

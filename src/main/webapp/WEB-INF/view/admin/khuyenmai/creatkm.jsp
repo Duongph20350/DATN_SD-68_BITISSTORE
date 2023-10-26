@@ -95,7 +95,25 @@
                                                        oninput="this.setCustomValidity('')"><form:errors path="name_"/> <br>
                                                 <br>
                                             </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label" >Ngày bắt đầu</label>
 
+                                                </div>
+                                                <input type="date"  required
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa nhập ngày bắt đầu')"
+                                                       oninput="this.setCustomValidity('')" id="ngaybatdau" class="form-control" name="start_date_" value="${adddvoucher.start_date_}" ><form:errors path="start_date_"/> <br>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="required-label">Ngày hết hạn</label>
+
+                                                </div>
+                                                <input type="date" class="form-control "  name="end_date" required
+                                                       oninvalid="this.setCustomValidity('Bạn Chưa nhập ngày kết thúc')"
+                                                       oninput="this.setCustomValidity('')"
+                                                       value="${adddvoucher.end_date}"  id="ngayketthuc"><form:errors path="end_date"/> <br>
+                                            </div>
                                             <div class="form-group">
                                                 <div>
                                                     <label class="required-label" >Mức giảm</label>
@@ -144,25 +162,7 @@
                                                 <br>
                                             </div>
 
-                                            <div class="form-group">
-                                                <div>
-                                                    <label class="required-label" >Ngày bắt đầu</label>
 
-                                                </div>
-                                                <input type="date"  required
-                                                       oninvalid="this.setCustomValidity('Bạn Chưa nhập ngày bắt đầu')"
-                                                       oninput="this.setCustomValidity('')" id="ngaybatdau" class="form-control" name="start_date_" value="${adddvoucher.start_date_}" ><form:errors path="start_date_"/> <br>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <label class="required-label">Ngày hết hạn</label>
-
-                                                </div>
-                                                <input type="date" class="form-control "  name="end_date"
-                                                       oninvalid="this.setCustomValidity('Bạn Chưa nhập ngày kết thúc')"
-                                                       oninput="this.setCustomValidity('')"
-                                                       value="${adddvoucher.end_date}"  id="ngayketthuc"><form:errors path="end_date"/> <br>
-                                            </div>
                                             <label>Trạng thái</label>
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
