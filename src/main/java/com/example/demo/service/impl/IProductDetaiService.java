@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -66,5 +67,10 @@ public class IProductDetaiService implements ProductdetailService {
             productDetailResponsitory.save(productDetail);
         });
         return true;
+    }
+
+    @Override
+    public ProductDetail detailProductDetail(UUID id) {
+        return productDetailResponsitory.findById(id).get();
     }
 }

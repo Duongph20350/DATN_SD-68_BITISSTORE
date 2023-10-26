@@ -93,7 +93,7 @@
                                         <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
                                             <tr >
                                                 <td>${stt.index+1}</td>
-                                                <td>${pgg.product.name_}(${pgg.size.nameSize}-${pgg.mauSac.name_}-${pgg.kieuDang.name_})</td>
+                                                <td>${pgg.product.name_}(${pgg.size.name}-${pgg.mauSac.name_}-${pgg.kieuDang.name_})</td>
                                                 <td>${pgg.gianhap}</td>
                                                 <td>${pgg.giaban}</td>
                                                 <td>${pgg.soluong}</td>
@@ -102,8 +102,8 @@
                                                 <td>${pgg.status_ == 1 ? "Mở Bán" : "Không Mở Bán"}</td>
                                                 <td>${pgg.mota}</td>
 
-                                              <td><button  class="btn btn-primary"><a style="color: aliceblue"
-                                                                                      href="">Xem chi tiết</a>
+                                              <td> <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                       href="/detailproductview/${pgg.id}">Xem Chi Tiết</a>
                                               </button></td>
                                             </tr>
                                         </c:forEach>
