@@ -19,9 +19,12 @@ public class XuatXu {
     @Column(name = "id")
     private UUID id;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Column(name = "name_")
     private String name_ ;
 =======
+=======
+>>>>>>> Stashed changes
     @Column(name = "name")
     private String name ;
     @Column(name = "create_by")

@@ -69,6 +69,9 @@
                                             <input type="text" class="form-control" name="name"
                                                    value="${addxuatxu.name}"
                                                    placeholder="Nhập Xuất xứ"><form:errors path="name"/><br>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                                             <br>
                                             <label>Trạng thái</label>

@@ -70,6 +70,9 @@
                                             <input type="text" class="form-control" name="name"
                                                    value="${addSize.name}"
                                                    placeholder="Nhập Size"><form:errors path="name"/> <br>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                                             <br>
                                             <label>Trạng thái</label>

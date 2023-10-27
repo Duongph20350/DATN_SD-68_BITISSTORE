@@ -97,8 +97,16 @@
 
                                             </div>
                                             <div class="mb-3">
+<<<<<<< Updated upstream
                                                 <a href="/mau-sac/tim-kiem" class="btn btn-info">tìm kiếm
                                                 </a>
+=======
+                                                <h1>Tìm kiếm Kiểu Dáng</h1>
+                                                <form action="/mau-sac/listms" method="get" class="form-inline my-2 my-lg-0">
+                                                    <input type="text" class="form-control mr-sm-2" name="ten" placeholder="Tìm kiếm theo tên">
+                                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                                                </form>
+>>>>>>> Stashed changes
 
 
 

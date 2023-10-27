@@ -19,25 +19,17 @@ import java.util.UUID;
 @Builder
 
 public class MauSac {
-//@Id
-//@GeneratedValue(generator = "uuid2")
-//@GenericGenerator(name = "uuid2",strategy = "uuid2")
-//@Column(name = "id",columnDefinition = "uniqueidentifier default newid()")
-//private UUID id;
-//    @Column(name = "name_")
-//    private String name_ ;
-//    private String create_by;
-//    private Date create_date;
-//    private Date  last_modifeed_date;
-//    private  Boolean status_;
-//    private String code;
-//
+
 @Id
 @GeneratedValue(strategy = GenerationType.UUID)
 @Column(name = "id")
 private UUID id;
     @Column(name = "name")
+<<<<<<< Updated upstream
     private String name;
+=======
+    private String name ;
+>>>>>>> Stashed changes
     @Column(name = "create_by")
     private String create_by;
     @Column(name = "create_date")

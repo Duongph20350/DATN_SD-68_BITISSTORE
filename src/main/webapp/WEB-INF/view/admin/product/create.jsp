@@ -86,11 +86,62 @@
                                                             <select class="form-control" var="">
 
                                                                 <c:forEach items="${lstproduct}"  var="pgg" >
+<<<<<<< Updated upstream
                                                                         <option>${pgg.name}</option>
+=======
+                                                                        <option value="${pgg.id}">${pgg.name}</option>
+>>>>>>> Stashed changes
                                                                 </c:forEach>
                                                             </select>
 >>>>>>> Stashed changes
                                                         </div>
+<<<<<<< Updated upstream
+=======
+                                                        <hr>
+                                                        <div>
+                                                        <label class="required-label">Thuộc Tính <span
+                                                                class="required">*</span></label>
+                                                    </div>
+
+                                                        <div class="form-group" >
+                                                            <div>
+                                                                <label class="required-label">Size <span
+                                                                        class="required">*</span></label>
+                                                            </div>
+                                                            <select class="js-example-basic-multiple" name="nameSize"  multiple>
+                                                                <c:forEach items="${lstSize}"  var="size" >
+                                                                    <option value="${size.id}">${size.name}</option>
+                                                                </c:forEach>
+                                                            </select>
+
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div>
+                                                                <label class="required-label">Màu Sắc <span
+                                                                        class="required">*</span></label>
+                                                            </div>
+                                                            <select class="form-control" var="" name="color">
+
+                                                                <c:forEach items="${lstColor}"  var="pgg" >
+                                                                    <option value="${pgg.id}">${pgg.name}</option>
+                                                                </c:forEach>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div>
+                                                                <label class="required-label">Kiểu dáng <span
+                                                                        class="required">*</span></label>
+                                                            </div>
+                                                            <select class="form-control" var="" name="kieu">
+
+                                                                <c:forEach items="${lstForm}"  var="pgg" >
+                                                                    <option value="${pgg.id}">${pgg.name}</option>
+                                                                </c:forEach>
+                                                            </select>
+                                                        </div>
+
+>>>>>>> Stashed changes
                                                         <div class="form-group">
                                                             <div>
                                                                 <label class="required-label" for="description">Mô tả <span

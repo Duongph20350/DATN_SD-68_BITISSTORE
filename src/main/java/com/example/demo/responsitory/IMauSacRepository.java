@@ -25,6 +25,10 @@ public interface IMauSacRepository extends JpaRepository<MauSac, UUID> {
     @Query(value = "update MauSac set status_= 0 where Id= :idMS", nativeQuery = true)
     void deleteMauSac(@Param("idMS") UUID idMS);
 
+<<<<<<< Updated upstream
 
 
+=======
+    Page<MauSac> findByName(String keyword, Pageable pageable);
+>>>>>>> Stashed changes
 }

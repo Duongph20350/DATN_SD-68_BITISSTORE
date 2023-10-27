@@ -87,7 +87,12 @@
                                                 </div>
                                                 <input type="text" class="form-control" name="name"
                                                        value="${adddvoucher.name}"
+<<<<<<< Updated upstream
                                                        placeholder="Nhập Tên Chương Trình"><form:errors path="name"/> <br>
+=======
+                                                       placeholder="Nhập Tên Chương Trình" required   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Tên Chương Trình')"
+                                                       oninput="this.setCustomValidity('')"><form:errors path="name"/> <br>
+>>>>>>> Stashed changes
                                                 <br>
                                             </div>
                                             <div class="form-group">

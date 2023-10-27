@@ -83,11 +83,23 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
+<<<<<<< Updated upstream
                                                 <a href="xuatxuedit" class="btn btn-info">Thêm mới Xuất Xứ<i
                                                 ></i></a>
+=======
+                                                <a href="/view_add" class="btn btn-info">Thêm mới Xuất Xứ</a>
 
-                                                <button class="btn btn-success">Tìm kiếm <i
-                                                        class="fas fa-search"></i></button>
+                                            </div>
+                                            <div class="mb-3">
+                                                <h1>Tìm kiếm Mẫu Sắc</h1>
+                                                <form action="/listxx" method="get" class="form-inline my-2 my-lg-0">
+                                                    <input type="text" class="form-control mr-sm-2" name="ten" placeholder="Tìm kiếm theo tên">
+                                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                                                </form>
+
+
+>>>>>>> Stashed changes
+
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +110,7 @@
                                         <tr>
 
                                             <th>STT</th>
-                                            <th>ID</th>
+                                  
                                             <th>Tên Xuất Xứ</th>
                                             <th>Trạng thái Xuất Xứ</th>
                                             <th>Ngày tạo Xuất Xứ</th>
@@ -134,11 +146,15 @@
                                         <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
                                             <tr >
                                                 <td>${stt.index+1}</td>
+<<<<<<< Updated upstream
                                                 <td>${pgg.id}</td>
 <<<<<<< Updated upstream
                                                 <td>${pgg.name_}</td>
                                                 <td>${pgg.status_}</td>
 =======
+=======
+
+>>>>>>> Stashed changes
                                                 <td>${pgg.name}</td>
                                                 <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
 >>>>>>> Stashed changes

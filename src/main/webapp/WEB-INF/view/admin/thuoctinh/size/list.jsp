@@ -82,11 +82,20 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <a href="/size" class="btn btn-info">Thêm mới Size<i
-                                                ></i></a>
+                                                <a href="/size" class="btn btn-info">Thêm mới Size
+                                                </a>
 
-                                                <button class="btn btn-success">Tìm kiếm <i
-                                                        class="fas fa-search"></i></button>
+
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <h1>Tìm kiếm Mẫu Sắc</h1>
+                                                <form action="/listsz" method="get" class="form-inline my-2 my-lg-0">
+                                                    <input type="text" class="form-control mr-sm-2" name="ten" placeholder="Tìm kiếm theo tên">
+                                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                                                </form>
+
+
 
                                             </div>
                                         </div>

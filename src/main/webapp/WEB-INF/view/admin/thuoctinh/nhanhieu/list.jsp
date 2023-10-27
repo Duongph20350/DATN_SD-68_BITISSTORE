@@ -81,11 +81,25 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
+<<<<<<< Updated upstream
                                                 <a href="/nhanhieu" class="btn btn-info"> Thêm Nhãn Hiệu<i
                                                 ></i></a>
+=======
+                                                <a href="/view_addnh" class="btn btn-info"> Thêm Nhãn Hiệu
+                                               </a>
 
-                                                <button id="btn-search" class="btn btn-success">Tìm kiếm <i
-                                                        class="fas fa-search"></i></button>
+
+
+                                            </div>
+                                            <div class="mb-3">
+                                                <h1>Tìm kiếm Kiểu Dáng</h1>
+                                                <form action="/listnh" method="get" class="form-inline my-2 my-lg-0">
+                                                    <input type="text" class="form-control mr-sm-2" name="ten" placeholder="Tìm kiếm theo tên">
+                                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                                                </form>
+
+>>>>>>> Stashed changes
+
 
                                             </div>
                                         </div>

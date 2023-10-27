@@ -109,11 +109,25 @@ public class MauSacController {
 
     @GetMapping("/listms")
     public String view(Model model, @RequestParam(defaultValue = "0") int page,
+<<<<<<< Updated upstream
                             @RequestParam(name = "ten", required = false) String keyword) {
         if (page < 0) page = 0;
         Pageable pageable = PageRequest.of(page, 5);
         Page<MauSac> mauSacs = mauSacRepository.findAll(pageable);
         listMS = mauSacRepository.findAll();
+=======
+                       @RequestParam(name = "ten", required = false) String keyword) {
+        if (page < 0) page = 0;
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<MauSac> mauSacs;
+
+        if (keyword == null || keyword.isBlank()) {
+            mauSacs = mauSacRepository.findAll(pageable);
+        } else {
+            mauSacs = mauSacRepository.findByName(keyword, pageable);
+        }
+
+>>>>>>> Stashed changes
         model.addAttribute("page", mauSacs);
         model.addAttribute("ms", mauSacs);
         return "admin/thuoctinh/mausac/list";

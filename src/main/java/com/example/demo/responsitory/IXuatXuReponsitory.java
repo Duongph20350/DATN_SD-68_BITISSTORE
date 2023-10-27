@@ -6,6 +6,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 
+<<<<<<< Updated upstream
 public interface IXuatXuReponsitory  extends JpaRepository<XuatXu,Integer> {
+=======
+public interface IXuatXuReponsitory  extends JpaRepository<XuatXu,UUID> {
+    Page<XuatXu> findByName(String keyword, Pageable pageable);
+
+>>>>>>> Stashed changes
 
 }

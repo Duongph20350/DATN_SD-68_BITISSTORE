@@ -91,6 +91,7 @@
                                         <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
                                             <tr >
                                                 <td>${stt.index+1}</td>
+<<<<<<< Updated upstream
                                                 <td>${pgg.name}</td>
                                                 <td></td>
                                                 <td>${pgg.price}</td>
@@ -105,6 +106,16 @@
 
 
                                                 </td>
+=======
+                                                <td>${pgg.product.name}(${pgg.size.nameSize}-${pgg.mauSac.name}-${pgg.kieuDang.name})</td>
+                                                <td>${pgg.gianhap}</td>
+                                                <td>${pgg.giaban}</td>
+                                                <td>${pgg.soluong}</td>
+                                                <td>${pgg.thue}</td>
+                                                <td>${pgg.status_ == 1 ? "Được Khuyến mãi" : "Không Khuyến Mãi"}</td>
+                                                <td>${pgg.status_ == 1 ? "Mở Bán" : "Không Mở Bán"}</td>
+                                                <td>${pgg.mota}</td>
+>>>>>>> Stashed changes
 
                                             </tr>
                                         </c:forEach>

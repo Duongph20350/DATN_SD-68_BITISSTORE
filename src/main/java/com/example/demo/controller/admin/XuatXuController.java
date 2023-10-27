@@ -22,6 +22,7 @@ public class XuatXuController {
     @Autowired
     private XuatXuService iXuatXuService = new IXuatXuService();
     @GetMapping("/listxx")
+<<<<<<< Updated upstream
     public String thuoctinh(Model model , @RequestParam(defaultValue = "1") int page
             , @RequestParam(name = "ten", required = false) String keyword){
         Page<com.example.demo.model.XuatXu> xuatXus ;
@@ -29,6 +30,21 @@ public class XuatXuController {
         Pageable pageable= PageRequest.of(page-1,5);
           xuatXus =xuatXuReponsitory.findAll(pageable);
         model.addAttribute("page",xuatXus);
+=======
+    public String thuoctinh(Model model, @RequestParam(defaultValue = "1") int page,
+                            @RequestParam(name = "ten", required = false) String keyword) {
+        if (page < 1) page = 1;
+        Pageable pageable = PageRequest.of(page - 1, 5);
+        Page<XuatXu> xuatXus;
+
+        if (keyword == null || keyword.isBlank()) {
+            xuatXus = xuatXuReponsitory.findAll(pageable);
+        } else {
+            xuatXus = xuatXuReponsitory.findByName(keyword, pageable);
+        }
+
+        model.addAttribute("page", xuatXus);
+>>>>>>> Stashed changes
         return "admin/thuoctinh/xuatxu/list";
     }
     @GetMapping("/xuatxu")
