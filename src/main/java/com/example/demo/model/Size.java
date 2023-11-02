@@ -42,6 +42,4 @@ public class Size {
     private Date  last_modifeed_date;
     @Column(name = "status_")
     private Integer status_;
-
-
 }

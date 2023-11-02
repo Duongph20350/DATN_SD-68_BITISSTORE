@@ -1,8 +1,12 @@
 package com.example.demo.controller.admin;
 
 import com.example.demo.model.Size;
+import com.example.demo.model.XuatXu;
+import com.example.demo.responsitory.IXuatXuReponsitory;
 import com.example.demo.responsitory.Sizeresponsitory;
 import com.example.demo.service.SizeService;
+import com.example.demo.service.XuatXuService;
+import com.example.demo.service.impl.IXuatXuService;
 import com.example.demo.service.impl.SizeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,13 +36,13 @@ public class SizeController {
 
     List<Size> listSize = new ArrayList<>();
     @GetMapping("/listsz")
-    public String thuoctinh(Model model , @RequestParam(defaultValue = "1") int page
+        public String thuoctinh(Model model , @RequestParam(defaultValue = "1") int page
             , @RequestParam(name = "ten", required = false) String keyword){
-        Page<Size> sizeS ;
-        if(page<1) page=1;
-        Pageable pageable= PageRequest.of(page-1,5);
-        sizeS =sizeresponsitory.findAll(pageable);
-        model.addAttribute("page",sizeS);
+            Page<Size> sizeS ;
+            if(page<1) page=1;
+            Pageable pageable= PageRequest.of(page-1,5);
+            sizeS =sizeresponsitory.findAll(pageable);
+            model.addAttribute("page",sizeS);
         return "admin/thuoctinh/size/list";
     }
     @GetMapping("/size")
@@ -48,7 +52,7 @@ public class SizeController {
     }
     @PostMapping("/create")
     public String addSize(Model model,@Valid @ModelAttribute("addSize") Size newSize,
-                          BindingResult result) {
+                        BindingResult result) {
         if (result.hasErrors()) {
             return "admin/thuoctinh/size/list";
         } else {
@@ -64,7 +68,7 @@ public class SizeController {
         return "admin/thuoctinh/size/edit";
     }
 
-    @GetMapping("/deletess/{id}")
+    @GetMapping("/size/delete/{id}")
     public String deleteSize(@PathVariable("id") UUID id) {
         sizeService.deleteSize(id);
         return "redirect:/listsz";
@@ -72,7 +76,7 @@ public class SizeController {
 
     @PostMapping("/edit")
     public String updateSize(@Valid @ModelAttribute("updateSize") Size updateSize,
-                             BindingResult result) {
+                               BindingResult result) {
         if (result.hasErrors()) {
             return "admin/thuoctinh/size/list";
         }

@@ -29,7 +29,7 @@ public class Voucher {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
-    @Column(name = "name_")
+    @Column(name = "name")
     private String name_ ;
     private String code;
     private  String value_;

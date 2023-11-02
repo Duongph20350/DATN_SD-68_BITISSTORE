@@ -51,15 +51,22 @@
                         <div class="col-12">
                             <div class="card card-outline">
                                 <div class="card-body pad">
-
+                                    <section class="card">
+                                        <header class="card-header">
+                                            <div class="card-actions">
+                                                <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                                <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                                            </div>
+                                            <h2 class="card-title">Thêm Size</h2>
+                                        </header>
                                     <div class="modal-body">
                                         <form:form action="/create" method="post" modelAttribute="addSize"
-                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Sie?')){return false}else{alert('Thêm Thành Công');}"
+                                                   onsubmit="if(!confirm('Ban Muon Them?')){return false}else{alert('Them Thanh Cong');}"
                                                    id="formCategory">
                                             <label>Tên Size</label>
                                             <input type="text" class="form-control" name="name_"
                                                    value="${addSize.name_}"
-                                                   placeholder="Nhập Size"><form:errors path="name_"/> <br>
+                                                   placeholder="Nhập Size"><form:errors path="name_"/><br>
                                             <br>
                                             <label>Trạng thái</label>
                                             <div class="form-group">
@@ -121,6 +128,6 @@
                 </div>
             </div>
         </div>
-</body>
+    </body>
 
 </html>

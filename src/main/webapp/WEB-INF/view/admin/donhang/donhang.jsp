@@ -72,7 +72,6 @@
                                     </button>
                                 </li>
 
-
                             </ul>
                             <p></p>
                             <ul class="nav nav-tabs nav-tabs-bordered">

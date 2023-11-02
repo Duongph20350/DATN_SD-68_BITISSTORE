@@ -141,7 +141,7 @@
 
                                                 <td>
                                                     <a href="/view-edit/${pgg.id}">Update</a>
-                                                    <a href="/deletess/${pgg.id}">Delete</a>
+                                                    <a href="/delete/${pgg.id}">Delete</a>
                                                 </td>
 
                                             </tr>

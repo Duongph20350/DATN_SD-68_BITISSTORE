@@ -54,7 +54,7 @@
 
                                     <div class="modal-body">
                                         <form:form action="/edit" method="post" modelAttribute="updateSize"
-                                                   onsubmit="if(!confirm('Bạn Muốn Cập Nhật ?')){return false}else{alert('Cập Nhật Thành Công');}"
+                                                   onsubmit="if(!confirm('Ban Muon Cap Nhat?')){return false}else{alert('Cap Nhap Thanh Cong');}"
                                                    id="formCategory">
                                             <label>ID</label>
                                             <input type="text" class="form-control" name="id"

@@ -31,7 +31,7 @@ public class XuatXu {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
-    @Column(name = "name_")
+    @Column(name = "name")
     private String name_ ;
     @Column(name = "create_by")
     private String create_by;

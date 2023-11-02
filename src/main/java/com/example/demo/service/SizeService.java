@@ -13,4 +13,5 @@ public interface SizeService {
 
     Size updateSize(Size size);
     Size detailSize(UUID id);
+
 }
