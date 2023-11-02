@@ -14,6 +14,7 @@
     <title>
         BITI'S STORE ADMIN
     </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -67,7 +68,7 @@
                                                 ></i> Trở về</a>
                                                 <a href="/view_addproductdetail" class="btn btn-primary"><i
                                                 ></i> Thêm sản phẩm</a>
-                                                ></button>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -78,12 +79,13 @@
 
                                             <th>STT</th>
                                             <th>Tên sản phẩm</th>
-                                            <th>Gía Nhập</th>
-                                            <th>Gía Bán</th>
+                                            <th>Giá Nhập</th>
+                                            <th>Giá Bán</th>
                                             <th>Số Lượng</th>
                                             <th>Thuế(%)</th>
                                             <th> Được Khuyến mãi</th>
                                             <th>Trạng Thái</th>
+                                            <th>Mô Tả</th>
                                             <th>Thao tác</th>
                                         </tr>
                                         </thead>
@@ -91,21 +93,18 @@
                                         <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">
                                             <tr >
                                                 <td>${stt.index+1}</td>
-                                                <td>${pgg.name_}</td>
-                                                <td></td>
-                                                <td>${pgg.price}</td>
-                                                <td>${pgg.quantity}</td>
-                                                <td>10</td>
-                                                <td></td>
-                                                <td>${pgg.status_?"Mở Bán":"Không Bán"}</td>
-                                                <td>
-                                                    <button  class="btn btn-primary"><a style="color: aliceblue"
-                                                                                        href="">Xem Chi Tiết</a>
-                                                    </button>
+                                                <td>${pgg.product.name_}(${pgg.size.name}-${pgg.mauSac.name_}-${pgg.kieuDang.name_})</td>
+                                                <td>${pgg.gianhap}</td>
+                                                <td>${pgg.giaban}</td>
+                                                <td>${pgg.soluong}</td>
+                                                <td>${pgg.thue}</td>
+                                                <td>${pgg.status_ == 1 ? "Được Khuyến mãi" : "Không Khuyến Mãi"}</td>
+                                                <td>${pgg.status_ == 1 ? "Mở Bán" : "Không Mở Bán"}</td>
+                                                <td>${pgg.mota}</td>
 
-
-                                                </td>
-
+                                              <td> <button  class="btn btn-primary"><a style="color: aliceblue"
+                                                                                       href="/detailproductview/${pgg.id}">Xem Chi Tiết</a>
+                                              </button></td>
                                             </tr>
                                         </c:forEach>
                                         </TBODY>
@@ -133,8 +132,16 @@
                                     </nav>
                                 </div>
                             </section>
+                        </section>
+
+                    </form>
+                </section>
                             <!--end-->
             </div>
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
     <!--   Core JS Files   -->
@@ -159,6 +166,22 @@
             demo.initChartsPages();
         });
     </script>
+<script>
+    $(document).ready(function () {
+        // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+        demo.initChartsPages();
+    });
+    function initializeStatus() {
+        var isActive = document.getElementById('active').checked ? 1 : 0;
+        document.getElementById('status').value = isActive;
+    }
+
+    document.getElementById('active').addEventListener('change', initializeStatus);
+
+    // Gọi hàm khởi tạo khi trang tải
+    initializeStatus();
+
+</script>
 </body>
 
 </html>

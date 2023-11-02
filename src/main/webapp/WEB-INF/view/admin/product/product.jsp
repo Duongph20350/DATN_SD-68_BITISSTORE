@@ -57,20 +57,30 @@
                                 </div>
                                 <h2 class="card-title">Danh sách sản phẩm</h2>
                                 <br>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <a href="/homepageadmin" class="btn btn-primary"><i
-                                                   ></i> Trở về</a>
-                                            <a href="/productdetailadmin" class="btn btn-primary"><i
-                                            ></i> Sản phẩm Chi Tiết</a>
 
-                                            <a href="/thuoctinh" class="btn btn-primary"><i
-                                                    ></i> Thuộc Tính</a>
-                                        </div>
+                                <div class="card">
+                                    <div class="card-body ">
+                                        <!-- Bordered Tabs -->
+                                        <ul class="nav nav-tabs nav-tabs-bordered">
+
+                                            <li class="nav-item">
+                                                <button class="nav-link active" data-bs-toggle="tab"
+                                                        data-bs-target="#profile-overview"> <a style="color: black" href="/productdetailadmin">Sản Phẩm Chi Tiết</a>
+                                                </button>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a
+                                                        style="color: black"  href="/thuoctinh">Thuộc Tính</a>
+                                                </button>
+                                            </li>
+
+
+                                        </ul>
                                     </div>
                                 </div>
                             </header>
+
                             <section class="card">
                                 <header class="card-header">
                                     <div class="card-actions">

@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -46,24 +47,161 @@
                 <!--  start   -->
 
 
-                </section>
-                <section role="main" class="content-body" id="main-content">
 
-                    <form action="" id="formProduct">
-                        <section class="card">
-                            <header class="card-header">
-                                <div class="card-actions">
-                                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                <section class="card">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+                        <h2 class="card-title">Quản Lý Hóa Đơn</h2>
+                    </header>
+                    <div class="card">
+                        <div class="card-body ">
+                            <!-- Bordered Tabs -->
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab"
+                                            data-bs-target="#profile-overview"> <a href="/banhanghome">Tạo Mới</a>
+                                    </button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Danh Sách Hóa Đơn
+                                    </button>
+                                </li>
+
+
+                            </ul>
+                            <p></p>
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview"> Chờ Xác Nhận</button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Chờ Giao</button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Đang Giao</button>
+                                </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Hoàn Thành</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Hủy</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Chờ Thanh Toán</button>
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <button id="btn-search" class="btn btn-primary">Tìm kiếm <i
+                                    ></i></button>
                                 </div>
-                                <h2 class="card-title">Danh sách Hóa Đơn</h2>
-                                <br>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped mb-0" id="datatable-editable">
+                            <thead>
+                            <tr>
+                                <th width="15%">STT</th>
+                                <th width="15%">Mã HĐ</th>
+                                <th>Tên khách Hàng</th>
+                                <th>Số Điện Thoại</th>
+                                <th>Tổng Tiền(VND)</th>
+                                <th>Ngày Mua</th>
+                                <th>Thao Tác</th>
+                            </tr>
+                            <tr class="heading-search">
+                                <form  method="GET" id="search-form">
+                                    <th>
 
-                            </header>
+                                    </th>
+                                    <th>
+                                        <input type="text" name="name" id="name" class="form-control search-input">
+                                    </th>
 
-                        </section>
-                    </form>
+                                    <th></th>
+                                    <th>
+
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <input type="hidden" name="page" id="page">
+                                </form>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <Td>1</Td>
+                                <Td>HD1</Td>
+                                <Td>Dương</Td>
+                                <Td>01234567</Td>
+                                <Td>1.000.000</Td>
+                                <Td>23-10-2023</Td>
+                                <Td><a>Xem Chi Tiêt</a></Td>
+<%--                            <c:forEach items="${page.getContent()}"  var="pgg" varStatus="stt">--%>
+<%--                                <tr >--%>
+<%--                                    <td>${stt.index+1}</td>--%>
+<%--                                    <td>${pgg.code}</td>--%>
+<%--                                    <td>${pgg.name_}</td>--%>
+<%--                                    <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>--%>
+
+<%--                                    <td>${pgg.value_}</td>--%>
+<%--                                    <td>${pgg.maximum_value}</td>--%>
+<%--                                    <td> Đơn Tối Thiểu ${pgg.condition}</td>--%>
+<%--                                    <td>${pgg.quantity}</td>--%>
+<%--                                    <td>${pgg.start_date_}</td>--%>
+<%--                                    <td>${pgg. end_date}</td>--%>
+<%--                                    <td>--%>
+<%--                                        <button  class="btn btn-primary"><a style="color: aliceblue"--%>
+<%--                                                                            href="/deletevc/${pgg.id}">Delete</a>--%>
+<%--                                        </button>--%>
+<%--                                        <p></p>--%>
+<%--                                        <button  class="btn btn-primary"><a style="color: aliceblue"--%>
+<%--                                                                            href="/view_updatekm/${pgg.id}">Update</a>--%>
+<%--                                        </button>--%>
+<%--                                    </td>--%>
+
+<%--                                </tr>--%>
+<%--                            </c:forEach>--%>
+                            </TBODY>
+
+<%--                            <p>Số Lượng voucher: ${page.getTotalElements()} </p>--%>
+<%--                            <div class="text-center">--%>
+<%--                                <c:if test="${ page.getNumber() + 1 > 1}">--%>
+<%--                                    <a href="?page=${page.getNumber() + 1 - 1}&name_=${param.name_}">--%>
+<%--                                        Previous--%>
+<%--                                    </a>--%>
+<%--                                </c:if>--%>
+<%--                                <span> ${page.getNumber() + 1} / ${ page.getTotalPages()} </span>--%>
+<%--                                <c:if test="${page.getNumber() + 1 <  page.getTotalPages()}">--%>
+<%--                                    <a href="?page=${page.getNumber() + 1 + 1} &name_=${param.ten}">--%>
+<%--                                        Next--%>
+<%--                                    </a>--%>
+<%--                                </c:if>--%>
+<%--                            </div>--%>
+                        </table>
+                        <br>
+
+                    </div>
+
+
                 </section>
+
+                </section>
+
                 <!--end-->
             </div>
         </div>
@@ -85,10 +223,20 @@
     <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="../admin/demo/demo.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
             demo.initChartsPages();
         });
+        function initializeStatus() {
+            var isActive = document.getElementById('active').checked ? 1 : 0;
+            document.getElementById('status').value = isActive;
+        }
+
+        document.getElementById('active').addEventListener('change', initializeStatus);
+
+        // Gọi hàm khởi tạo khi trang tải
+        initializeStatus();
+
     </script>
 </body>
 

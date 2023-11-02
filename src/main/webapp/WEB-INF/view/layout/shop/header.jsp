@@ -3,11 +3,7 @@
 <header>
     <div class="container">
         <h1 class="navbar-brand navbar-brand_"><a href="/homepageshop"><img src="" alt="logo">LogoBITI'SSTORE</a></h1>
-        <div class="box">
-            <form id="search" class="search" action="search.php" method="GET" accept-charset="utf-8">
-                <input type="text" name="s" value="" onfocus="if (this.value == '') {this.value=''}" onblur="if (this.value == '') {this.value=''}">
-                <a href="#" onClick="document.getElementById('search').submit()"></a>
-            </form>
+
             <ul class="info_list">
                 <li>
                     <span class="fa fa-phone"></span>

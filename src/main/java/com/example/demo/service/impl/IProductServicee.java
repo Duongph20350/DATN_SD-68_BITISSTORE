@@ -2,24 +2,27 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.Product;
 import com.example.demo.model.Size;
+import com.example.demo.model.User;
 import com.example.demo.model.XuatXu;
+import com.example.demo.responsitory.IProductDetailResponsitory;
 import com.example.demo.responsitory.IproductResponsitory;
 import com.example.demo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class IProductServicee implements ProductService {
     @Autowired
     IproductResponsitory iproductResponsitory;
-    @Override
-    public void deletePproduct(UUID id) {
-iproductResponsitory.deleteById(id);
 
-    }
+    @Autowired
+    IProductDetailResponsitory productDetailResponsitory;
+
+
 
     @Override
     public Product addpr(Product product) {
@@ -53,5 +56,13 @@ iproductResponsitory.deleteById(id);
     @Override
     public List<Product> getAll() {
         return iproductResponsitory.findAll();
+    }
+
+    @Override
+    public void deleteProduct(UUID id) {
+        Optional<Product> indexProduct = iproductResponsitory.findById(id);
+        if(indexProduct.isPresent()){
+            iproductResponsitory.deleteProduct(id);
+        }
     }
 }

@@ -26,9 +26,9 @@
     <script src="../shop/js/jquery.equalheights.js"></script>
     <script src="../shop/js/camera.js"></script>
     <!--[if (gt IE 9)|!(IE)]><!-->
-    <script src="../shop/js/jquery.mobile.customized.min.js"></script>
+<%--    <script src="../shop/js/jquery.mobile.customized.min.js"></script>--%>
     <!--<![endif]-->
-    <script src="../shop/js/touchTouch.jquery.js"></script>
+<%--    <script src="../shop/js/touchTouch.jquery.js"></script>--%>
     <script src="../shop/js/jquery.carouFredSel-6.1.0-packed.js"></script>
     <script src="../shop/js/jquery.touchSwipe.min.js"></script>
     <script>

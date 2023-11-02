@@ -29,7 +29,7 @@ public class KieuDangServiceImpl implements KieuDangService {
 
     @Override
     public List<KieuDang> getAllForm() {
-        return null;
+        return kieuDangResponsitory.findAll();
     }
 
     @Override

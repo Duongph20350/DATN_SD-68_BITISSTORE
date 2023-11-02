@@ -74,9 +74,12 @@
                                     <th width="15%">STT</th>
                                     <th width="15%">Mã khuyến mại</th>
                                     <th>Tên khuyến mại</th>
-
                                     <th>Trạng thái</th>
+
                                     <th>Giá trị</th>
+                                    <th>Gía trị tối đa</th>
+                                    <th>Điều Kiện</th>
+                                    <th>Số Lượng</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày hết hạn</th>
                                     <th>Thao Tác</th>
@@ -112,7 +115,11 @@
                                         <td>${pgg.code}</td>
                                         <td>${pgg.name_}</td>
                                         <td>${pgg.status_ == 1 ? "Đã kích hoạt" : "Đã khóa"}</td>
+
                                         <td>${pgg.value_}</td>
+                                        <td>${pgg.maximum_value}</td>
+                                        <td> Đơn Tối Thiểu ${pgg.condition}</td>
+                                        <td>${pgg.quantity}</td>
                                         <td>${pgg.start_date_}</td>
                                         <td>${pgg. end_date}</td>
                                         <td>

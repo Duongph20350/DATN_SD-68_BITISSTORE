@@ -1,9 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.Category;
-import com.example.demo.model.Size;
 import com.example.demo.model.Voucher;
-import com.example.demo.model.XuatXu;
 import com.example.demo.responsitory.IVoucherResponsitory;
 import com.example.demo.service.VoucherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +27,15 @@ public class IVoucherService implements VoucherService {
                 .name_(voucher.getName_())
                 .code(voucher.getCode())
                 .value_(voucher.getValue_())
+                .maximum_value(voucher.getMaximum_value())
+                .condition(voucher.getCondition())
+                .quantity(voucher.getQuantity())
                 .start_date_(voucher.getStart_date_())
                .end_date(voucher.getEnd_date())
                 .status_(voucher.getStatus_())
                 .build();
         return iVoucherResponsitory.save(newvVoucher1);
-
     }
-
     @Override
     public Voucher update(Voucher voucher) {
         Voucher voucher1= iVoucherResponsitory.findById(voucher.getId()).orElse(null).builder()

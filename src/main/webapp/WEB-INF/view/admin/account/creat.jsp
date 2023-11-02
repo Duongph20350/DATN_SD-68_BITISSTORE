@@ -53,50 +53,72 @@
                                 <div class="card-body pad">
 
                                     <div class="modal-body">
-                                        <form:form action="/editus" method="post" modelAttribute="updateUser"
-                                                   onsubmit="if(!confirm('Bạn Muốn Mở tài khoản này ?')){return false}else{alert('Mở Thành Công');}"
+                                        <label><h5>Thêm Tài Khoản</h5></label>
+                                        <form:form action="/createuser" method="post" modelAttribute="addUser"
+                                                   onsubmit="if(!confirm('Bạn Muốn Thêm Tài Khoản Không?')){return false}else{alert('Thêm Thành Công Tài Khoản');}"
                                                    id="formCategory">
-                                            <label><h5>Thông tin tài khoản</h5></label>
+                                            <label>Tên Tài Khoản</label>
+                                            <input type="text" class="form-control" name="full_name"
+                                                   value="${addUser.full_name}"
+                                                   placeholder="Nhập Tên Tài Khoản"
+                                                   required oninvalid="this.setCustomValidity('Bạn Chưa Nhập Tên')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="full_name"/><br>
+                                            <br>
+                                            <label>PassWord</label>
+                                            <input type="text" class="form-control" name="password"
+                                                   value="${addUser.password}"
+                                                   placeholder="Nhập PassWord" required minlength="8"
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Password')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="password"/><br>
+                                            <br>
+                                            <label>Email</label>
+                                            <input type="text" class="form-control" name="email"
+                                                   value="${addUser.email}"
+                                                   placeholder="Nhập Email"required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Email')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="email"/><br>
+                                            <br>
+                                            <label>Số Điện Thoại</label>
+                                            <input type="text" class="form-control" name="phone_number"
+                                                   value="${addUser.phone_number}"
+                                                   placeholder="Nhập Số Điện Thoại" pattern="[0-9]+" required maxlength="10"
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Số Điện Thoại')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="phone_number"/><br>
+                                            <br>
+                                            <label>Số Căn Cước</label>
+                                            <input type="text" class="form-control" name="citizen_identity"
+                                                   value="${addUser.citizen_identity}"
+                                                   placeholder="Nhập Số Căn Cước" required
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Số Căn Cước')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="citizen_identity"/><br>
+                                            <br>
+                                            <label>Địa Chỉ</label>
+                                            <input type="text" class="form-control" name="address_"
+                                                   value="${addUser.address_}"
+                                                   placeholder="Nhập Địa Chỉ" required
+                                                   oninvalid="this.setCustomValidity('Bạn Chưa Nhập Địa Chỉ')"
+                                                   oninput="this.setCustomValidity('')"
+                                            ><form:errors path="address_"/><br>
+                                            <br>
+                                            <label>Trạng thái</label>
                                             <div class="form-group">
-                                                <label>ID Tài Khoản</label>
-                                                <input type="text" class="form-control" name="id"
-                                                       value="${updateUser.id}" readonly>
-                                                <br>
-                                                <label>Tên Tài Khoản</label>
-                                                <input type="text" class="form-control" name="full_name"
-                                                       value="${updateUser.full_name}" readonly>
-                                                <br>
-                                                <label>Password</label>
-                                                <input type="text" class="form-control" name="password"
-                                                       value="${updateUser.password}" readonly>
-                                                <br>
-                                                <label>Email</label>
-                                                <input type="text" class="form-control" name="email"
-                                                       value="${updateUser.email}" readonly>
-                                                <br>
-                                                <label>Số Điện Thoại</label>
-                                                <input type="text" class="form-control" name="phone_number"
-                                                       value="${updateUser.phone_number}" readonly>
-                                                <br>
-                                                <label>Số Căn Cước</label>
-                                                <input type="text" class="form-control" name="citizen_identity"
-                                                       value="${updateUser.citizen_identity}" readonly>
-                                                <br>
-                                                <label>Địa Chỉ</label>
-                                                <input type="text" class="form-control" name="address_"
-                                                       value="${updateUser.address_}" readonly>
-                                                <br>
                                                 <div class="custom-control custom-switch">
                                                     <input type="checkbox" class="custom-control-input" id="active"
-                                                           <c:if test="${updateUser.status_ == 1}">checked</c:if>>
+                                                           checked>
                                                     <input type="hidden" id="status" name="status_">
-                                                    <label class="custom-control-label" for="active">Kích hoạt Account</label>
+                                                    <label class="custom-control-label" for="active">Kích hoạt
+                                                        Tài Khoản</label>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <a type="button" class="btn btn-secondary" data-dismiss="modal"
-                                                   href="/listsz">Hủy</a>
-                                                <button type="submit" class="btn btn-primary">Mở Tài Khoản</button>
+                                                   href="/listkd">Hủy</a>
+                                                <button type="submit" class="btn btn-primary">Thêm Tài Khoản</button>
                                             </div>
                                         </form:form>
 

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="sidebar-wrapper">
     <ul class="nav">
@@ -16,7 +18,7 @@
             </a>
         </li>
         <li>
-            <a href="/hoadonhome">
+            <a href="/banhanghome">
                 <i class="fa fa-fax"></i>
                 <p>Quản Lý Giao Dịch</p>
             </a>
@@ -35,7 +37,16 @@
                 <p>Quản Lí Tài Khoản</p>
             </a>
         </li>
+        <li>
+            <a href="/imagelist">
+                <i class="fa fa-image"></i>
+                <p>Thư Viện Ảnh</p>
+            </a>
+        </li>
+
 
     </ul>
 </div>
 </div>
+
+

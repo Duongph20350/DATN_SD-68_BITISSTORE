@@ -38,6 +38,9 @@ public class Voucher {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date  end_date;
     private Integer status_;
+    private  Integer quantity;
+    private String maximum_value;
+    private String condition;
 
 
 

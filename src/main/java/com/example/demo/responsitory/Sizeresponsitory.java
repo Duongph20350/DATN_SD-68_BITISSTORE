@@ -9,14 +9,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
-
 @Repository
-
 public interface Sizeresponsitory extends JpaRepository<Size, UUID> {
     @Modifying
     @Transactional
     @Query(value = "update size set status_= 0 where Id= :idSize", nativeQuery = true)
     void deleteSize(@Param("idSize") UUID idSize);
-
-    // giải thích cho tôi hiểu trang thái 1 là sao qua zalo
 }

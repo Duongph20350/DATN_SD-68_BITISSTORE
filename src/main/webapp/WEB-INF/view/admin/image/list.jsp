@@ -49,7 +49,6 @@
                 </section>
                 <section role="main" class="content-body" id="main-content">
 
-
                     <form action="" id="formProduct">
                         <section class="card">
                             <header class="card-header">
@@ -57,52 +56,41 @@
                                     <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                     <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                 </div>
-                                <h2 class="card-title">Danh sách Thuộc Tính</h2>
+                                <h2 class="card-title">Danh sách ảnh</h2>
                                 <br>
-
-                                <div class="card">
-                                    <div class="card-body ">
-                                        <!-- Bordered Tabs -->
-                                        <ul class="nav nav-tabs nav-tabs-bordered">
-
-                                            <li class="nav-item">
-                                                <button class="nav-link active" data-bs-toggle="tab"
-                                                        data-bs-target="#profile-overview"> <a style="color: black" href="/product">Sản Phẩm</a>
-                                                </button>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit"><a
-                                                        style="color: black ;font-style: initial"  href="/thuoctinh">Thuộc Tính</a>
-                                                </button>
-                                            </li>
-
-
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="mb-3">
-                                            <a href="/listkd" class="btn btn-primary"><i
-                                                    class=""></i> Kiểu Dáng</a>
-                                            <a href="mau-sac/listms" class="btn btn-primary"><i
-                                                    class=""></i> Màu Sắc</a>
-                                            <a href="/listsz" class="btn btn-primary"><i
-                                                    class=""></i> Size</a>
-                                            <a href="listxx" class="btn btn-primary"><i
-                                                    class=""></i> Xuất Xứ</a>
-                                            <a href="/listnh" class="btn btn-primary"><i
-                                                    class=""></i> Nhãn Hiệu</a>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </header>
 
                         </section>
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Chọn ảnh</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        <div class="float-left">
+                                            <input type="file" name="file" id="upload-thumbnail">
+                                            <label for="upload-thumbnail">
+                                                <span class="btn btn-warning btn-upload-img"><i class="fas fa-upload"></i> Tải ảnh lên</span>
+                                            </label>
+                                            <button class="btn btn-success btn-choose-img" disabled>Chọn ảnh</button>
+                                        </div>
+                                        <div class="float-right">
+                                            <button class="btn btn-danger btn-delete-img" disabled><i class="fas fa-trash-alt"></i> Xóa ảnh</button>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div id="list-user-img">
+                                        <ul class="list"></ul>
+                                        <ul class="pagination"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </section>
                 <!--end-->

@@ -11,48 +11,15 @@
 <p></p>
 <!--content-->
 <div class="content">
-
     <div class="thumb-box2">
         <div class="container">
-            <h2 class="indent" ><span>Chúng tôi có gì mới ?</span></h2>
-            <p class="description" >NHỮNG BƯỚC CHÂN KHÔNG MỎI</p>
+            <h2 class="indent" ><span> Journey To Glow Up Collection </span></h2>
+            <p class="description" >BITI'S X KIEY</p>
         </div>
-        <div class="main">
-            <div class="services_box">
-                <div class="box box1 wow fadeInLeft" data-wow-delay="0.15s">
-                    <strong>Giay the thao</strong>
-                    <figure><img src="/shop/img/giay3.jpg" alt="" width="300px" height="100px"></figure>
-                    <div class="caption">
-                        <a href="#" class="btn-default btn1"></a>
-                    </div>
-                </div>
-                <div class="box box2 wow fadeInLeft">
-                    <strong>Giay chay</strong>
-                    <figure><img src="/shop/img/giay3.jpg" alt="" width="300px" height="100px"></figure>
-                    <div class="caption">
+        <figure style="margin-left: 80px"><img src="/shop/img/Screenshot 2023-10-14 095432.png" alt="" width="1400px"  height="450px"></figure>
 
-                        <a href="#" class="btn-default btn1"></a>
-                    </div>
-                </div>
-                <div class="box box3 wow fadeInRight">
-                    <strong>Giay Thoi Trang</strong>
-                    <figure><img src="/shop/img/giay3.jpg" alt="" width="300px" height="100px"></figure>
-                    <div class="caption">
-                        <a href="#" class="btn-default btn1"></a>
-                    </div>
-                </div>
-                <div class="box box4 wow fadeInRight" data-wow-delay="0.15s">
-                    <strong>Giay cho be</strong>
-                    <figure><img src="/shop/img/giay3.jpg" alt="" width="300px" height="100px"></figure>
-                    <div class="caption"><a href="#" class="btn-default btn1"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
- <div class="container">
-     <h2>Sản Phẩm mới</h2>
- </div>
+
 
     <div class="thumb-box5">
         <div class="container">
@@ -143,14 +110,7 @@
         </div>
     </div>
     <p></p>
-    <div class="thumb-box2">
-        <div class="container">
-            <h2 class="indent" ><span> Journey To Glow Up Collection </span></h2>
-            <p class="description" >BITI'S X KIEY</p>
-        </div>
-        <figure style="margin-left: 80px"><img src="/shop/img/Screenshot 2023-10-14 095432.png" alt="" width="1400px"  height="450px"></figure>
 
-    </div>
 
 
 

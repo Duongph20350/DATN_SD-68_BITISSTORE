@@ -7,35 +7,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-import java.util.Date;
 import java.util.UUID;
-@Setter
-@Getter
-@ToString
-@Builder
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 @Entity
-@Table(name = "account")
-public class User {
+@Table(name = "image_")
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
-    private String full_name;
-    private Integer citizen_identity;
-    private Date date_of_bith;
-    private Date created_date;
-    private String email;
-    private Integer phone_number;
-    private String address_;
-    private String password;
-    @Column(name = "status_")
-    private Integer status_;
+    @Column(name = "name_")
+    private String name_;
+    @Column(name = "size")
+    private long size;
+    @Column(name = "link",unique = true)
+    private String link;
 }

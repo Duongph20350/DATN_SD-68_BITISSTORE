@@ -12,11 +12,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.UUID;
-
 @Entity
 @Table(name = "size")
 @Setter
@@ -25,13 +25,12 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Size {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id")
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private UUID id;
-    @Column(name = "name")
+    @Column(name = "name_")
     private String name_ ;
     @Column(name = "create_by")
     private String create_by;
@@ -43,5 +42,4 @@ public class Size {
     private Date  last_modifeed_date;
     @Column(name = "status_")
     private Integer status_;
-
 }
