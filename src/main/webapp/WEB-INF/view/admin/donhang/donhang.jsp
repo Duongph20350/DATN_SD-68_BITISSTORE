@@ -71,10 +71,6 @@
                                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Danh Sách Hóa Đơn
                                     </button>
                                 </li>
-                                <li class="nav-item">
-                                    <button class="nav-link" data-bs-toggle="tab" onclick="paymentVnPay()"  data-bs-target="#profile-edit"> vnpay
-                                    </button>
-                                </li>
 
                             </ul>
                             <p></p>
@@ -239,42 +235,7 @@
 
         // Gọi hàm khởi tạo khi trang tải
         initializeStatus();
-        var products = [
-            <c:forEach items="${products}" var="product">
-            {price: ${product.price}, quantity: ${product.quantity}},
-            </c:forEach>
-        ];
-        // tính tiền hóa đơn được select
-        var totalMoney = products.reduce((acc, product) => acc + (product.price * product.quantity), 0);
-        // var item = products.length
-        // document.getElementById("totalBill").textContent = totalMoney + "VND"
 
-
-
-        function paymentVnPay() {
-            // data test
-            var code = "HD1"
-            //  mã hóa đơn đưuojc select
-            totalMoney = 700000
-            // end  data test
-            const data = {
-                vnp_Ammount: total,
-                vnp_TxnRef: code,
-            };
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: 'http://localhost:8080/payment',
-                data: JSON.stringify(data),
-                dataType: 'json',
-                success: function (responseData) {
-                    window.open(responseData.data, '_self')
-                },
-                error: function (e) {
-                    window.open(e.responseText, '_self')
-                }
-            });
-        }
     </script>
 </body>
 

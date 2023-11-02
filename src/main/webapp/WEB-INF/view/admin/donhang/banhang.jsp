@@ -186,6 +186,8 @@
                                                             </button>
                                                         </div>
                                                     </div>
+                                                    <button type="button"  onclick="paymentVnPay()"  class="btn btn-primary" > vnpay
+                                                    </button>
 
                                                 </form><!-- End General Form Elements -->
 
@@ -257,37 +259,77 @@
         </div>
     </div>
     <!--   Core JS Files   -->
-    <script src="../admin/js/core/jquery.min.js"></script>
-    <script src="../admin/assets/js/core/popper.min.js">
+<%--    <script src="../admin/js/core/jquery.min.js"></script>--%>
+<%--    <script src="../admin/assets/js/core/popper.min.js">--%>
 
-    </script>
-    <script src="../admin/assets/js/core/bootstrap.min.js"></script>
-    <script src="../admin/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-    <!-- Chart JS -->
-    <script src="../admin/js/plugins/chartjs.min.js"></script>
-    <!--  Notifications Plugin    -->
-    <script src="../admin/js/plugins/bootstrap-notify.js"></script>
-    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
-    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-    <script src="../admin/demo/demo.js"></script>
+<%--    </script>--%>
+<%--    <script src="../admin/assets/js/core/bootstrap.min.js"></script>--%>
+<%--    <script src="../admin/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>--%>
+<%--    <!--  Google Maps Plugin    -->--%>
+<%--    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--%>
+<%--    <!-- Chart JS -->--%>
+<%--    <script src="../admin/js/plugins/chartjs.min.js"></script>--%>
+<%--    <!--  Notifications Plugin    -->--%>
+<%--    <script src="../admin/js/plugins/bootstrap-notify.js"></script>--%>
+<%--    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->--%>
+<%--    <script src="../admin/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>--%>
+<%--    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->--%>
+<%--    <script src="../admin/demo/demo.js"></script>--%>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function () {
-            // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-            demo.initChartsPages();
-        });
+        var products = [
+            <c:forEach items="${products}" var="product">
+            {price: ${product.price}, quantity: ${product.quantity}},
+            </c:forEach>
+        ];
+        // tính tiền hóa đơn được select
+        var totalMoney = products.reduce((acc, product) => acc + (product.price * product.quantity), 0);
+        // var item = products.length
+        // document.getElementById("totalBill").textContent = totalMoney + "VND"
 
-        function initializeStatus() {
-            var isActive = document.getElementById('active').checked ? 1 : 0;
-            document.getElementById('status').value = isActive;
+
+
+        function paymentVnPay() {
+            // data test
+            console.log("hdakjsahdjahdskjasd ")
+            var code = "HD002"
+            //  mã hóa đơn đưuojc select
+            var total = 700000
+            // end  data test123
+            const data = {
+                vnp_Ammount: total,
+                vnp_TxnRef: code,
+            };
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: 'http://localhost:8080/payment',
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (responseData) {
+                    window.open(responseData.data, '_self')
+                },
+                error: function (e) {
+                    window.open(e.responseText, '_self')
+                }
+            });
         }
+        // $(document).ready(function () {
+        //     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+        //     demo.initChartsPages();
+        // });
+        //
+        // function initializeStatus() {
+        //     var isActive = document.getElementById('active').checked ? 1 : 0;
+        //     document.getElementById('status').value = isActive;
+        // }
+        //
+        // document.getElementById('active').addEventListener('change', initializeStatus);
+        //
+        // // Gọi hàm khởi tạo khi trang tải
+        // initializeStatus();
 
-        document.getElementById('active').addEventListener('change', initializeStatus);
-
-        // Gọi hàm khởi tạo khi trang tải
-        initializeStatus();
 
     </script>
 </body>
