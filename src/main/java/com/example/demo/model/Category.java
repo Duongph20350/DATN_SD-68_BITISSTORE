@@ -30,7 +30,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
-    @Column(name = "name_")
+    @Column(name = "name")
     private String name_ ;
     @Column(name = "create_by")
     private String create_by;
@@ -42,4 +42,5 @@ public class Category {
     private Date  last_modifeed_date;
     @Column(name = "status_")
     private Integer status_;
+
 }
